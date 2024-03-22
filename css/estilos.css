@@ -1,0 +1,42 @@
+
+
+main{
+    margin-bottom: 85px;
+}
+footer {
+    position: fixed;
+
+    margin: -0px -0px -0px -7px; 
+    
+    bottom: 00px;
+    width: 100%;
+    z-index: 2500;
+    background-image: linear-gradient(#000,#fff);
+    
+}
+
+.infos{
+    display: inline-block;
+    height: 1.2em;
+    width: 30%;
+    text-align: center;
+    padding: 15px;
+}
+
+@keyframes rotar3d{
+    from{
+        transform: rotatey(40deg);
+        transform: rotatex(30deg);
+    }
+    to{
+        transform: rotatey(-40deg);
+        transform: rotatex(-30deg);
+    }
+}
+
+#nombre{
+ 
+    animation-name: rotar3d;
+    animation-duration: 4s;
+ 
+}
