@@ -1,8 +1,37 @@
-
-
 main{
     margin-bottom: 85px;
 }
+
+.fondo-negro{
+    background-color: #000;
+}
+
+.texto-blanco{
+    color: #fff;
+}
+
+.pt-15px{
+    padding-top: 15px;
+}
+.ml-10px{
+    margin-left: 10px;
+}
+.centrado {
+    margin: 0 auto;
+}
+.fondo-gris{
+    background-color: gray;
+}
+
+.pad-4-5-4-r5{
+    padding: 4px 5px 4px;
+    border-radius: 5px;
+}
+
+header a{
+    text-decoration: none;
+}
+
 footer {
     position: fixed;
 
@@ -20,18 +49,7 @@ footer {
     height: 1.2em;
     width: 30%;
     text-align: center;
-    padding: 15px;
-}
-
-@keyframes rotar3d{
-    from{
-        transform: rotatey(40deg);
-        transform: rotatex(30deg);
-    }
-    to{
-        transform: rotatey(-40deg);
-        transform: rotatex(-30deg);
-    }
+    padding: 10px;
 }
 
 #nombre{
@@ -40,3 +58,5 @@ footer {
     animation-duration: 4s;
  
 }
+
+
