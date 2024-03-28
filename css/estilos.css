@@ -1,96 +1,141 @@
-
-
-.open-sans{
+.open-sans {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
     font-variation-settings:
-      "wdth" 100;
-  }
-  
-
-main{
-    margin-bottom: 85px;
+        "wdth" 100;
 }
 
-.fondo-negro{
+.fondo-negro {
     background-color: #000;
 }
 
-.texto-blanco{
+#section a{
+    display: block;
+}
+
+#img{
+    display: block;
+}
+
+#imgsociales img{
+    margin-top: 10px;
+    height: 30px;
+    /* filter: brightness(100); */
+}
+.texto-blanco {
     color: #fff;
 }
 
-.texto-rojo{
+.texto-rojo {
     color: red;
 }
 
-.pt-15px{
+.pt-15px {
     padding-top: 15px;
 }
-.ml-10px{
+.mt-15px {
+    margin-top: 15px;
+}
+
+.mar-10px{
+    margin: 10px;
+}
+
+.ml-10px {
     margin-left: 10px;
 }
+
 .centrado {
-    margin: 0 auto;
     text-align: center;
-    width: 100%;
+    margin: 0 auto;
 }
-.fondo-gris{
+
+.fondo-gris {
     background-color: gray;
 }
 
-/*.pad-4-5-4-r5{
-    
-}*/
+.contenedor {
+    width: 100%;
+}
 
-.boton-gris{
+.boton-gris {
     margin: 5px;
     padding: 4px 5px 4px;
     border-radius: 5px;
     color: #fff;
-    background-color: gray;
+    background-color: rgb(189, 186, 186);
     text-decoration: none;
 }
 
-.boton-gris:hover{
+.boton-gris:hover {
     text-shadow: 0px 0px 3px #fff;
 }
 
-.boton-gris:visited{
+.boton-gris:visited {
     text-decoration: none;
 }
 
-header a{
-    
+.img-medium{
+    width: 40%;
+}
+header {
+    position: sticky;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+}
+
+.rectan {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: chocolate;
 }
 
 footer {
     position: fixed;
-
-    margin: -0px -0px -0px -7px; 
+    bottom: 0;
     
-    bottom: 00px;
     width: 100%;
     z-index: 2500;
-    background-image: linear-gradient(#000,#fff);
-    
 }
 
-.infos{
-    display: inline-block;
-    height: 1.2em;
-    width: auto;
+
+.grilla {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-template-areas: "a a a";
+}
+
+.infos {
+    height: 1.3em;
     text-align: center;
-    padding: 10px;
+    margin: auto auto 15px auto;
+    padding: 0;
 }
 
-#nombre{
- 
-    animation-name: rotar3d;
-    animation-duration: 4s;
- 
+#nombre:hover {
+    animation: 1.2s ease 0s infinite rota;
 }
 
+@keyframes rota {
+    0% {
+        transform: rotateZ(0deg);
+    }
 
+    33% {
+        transform: rotateZ(10deg) rotateY(30deg) scale(1.5);
+
+    }
+
+    66% {
+        transform: rotateZ(-10deg) rotateY(-25deg) rotateX(25deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
