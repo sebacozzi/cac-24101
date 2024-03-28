@@ -10,6 +10,10 @@ main{
     color: #fff;
 }
 
+.texto-rojo{
+    color: red;
+}
+
 .pt-15px{
     padding-top: 15px;
 }
@@ -18,6 +22,7 @@ main{
 }
 .centrado {
     margin: 0 auto;
+    text-align: center;
 }
 .fondo-gris{
     background-color: gray;
@@ -47,7 +52,7 @@ footer {
 .infos{
     display: inline-block;
     height: 1.2em;
-    width: 30%;
+    width: auto;
     text-align: center;
     padding: 10px;
 }
