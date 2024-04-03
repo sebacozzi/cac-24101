@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codo a Codo - La cocina de Juan</title>
+
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="open-sans">
+    <header class="fondo-negro">
+        <nav class="pt-15px ">
+            <a href="./index.html" target="#main" class="boton-gris">Home</a>
+            <a href="./acerca_de.html" target="#main" class="boton-gris">Acerca de</a>
+            <a href="./contacto.html" class="boton-gris">Contacto</a>
+            <a href="./registro.html" class="boton-gris seleccionado">Regístrese</a>
+            <a href="./registro.html" class="boton-gris">Sucursales</a>
+            <a href="./sucursales.html" class="boton-gris">Nuestros Clientes</a>
+        </nav>
+        <div class="contenedor">
+            <h1 class="centrado texto-blanco">La cocina de Juan</h1>
+        </div>
+    </header>
+
+
+    <main>
+        <section id="formularioRegistro">
+
+            <h2>Formulario de Registro</h2>
+            <form action="/registrado.html">
+                <div class="contenedor mar-10px" id="nomyap">
+                    <label for="f_nombre">Nombre:</label>
+                    <input type="text" alt="Ingrese su nombre aquí" name="f_nombre" id="f_nombre"
+                        placeholder="Ingrese su nombre aquí.">
+                    <label for="f_apellido">Apellido:</label>
+                    <input type="text" alt="Ingrese su apllido aquí" name="f_apellido" id="f_apellido"
+                        placeholder="Ingrese su apllido aquí.">
+                </div>
+                <div class="contenedor mar-10px">
+                    <label for="l_dir">Dirección:</label>
+                    <div id="domicilio" class="mt_5px">
+                        <label for="f_calle">Calle:</label>
+                        <input type="text" alt="Ingrese su calle aquí" name="f_calle" id="f_calle"
+                            placeholder="Ingrese su calle aquí.">
+                        <label for="f_numero">Número:</label>
+                        <input type="text" alt="Ingrese el Número" name="f_numero" id="f_numero"
+                            placeholder="Ingrese el Número.">
+                        <label for="f_ciudad">Ciudad:</label>
+                        <input type="text" alt="Ingrese su ciudad" name="f_ciudad" id="f_ciudad" placeholder="C.A.B.A">
+                        <label for="f_cp">Código postal:</label>
+                        <input type="text" alt="Ingrese su código postal" name="f_cp" id="f_cp"
+                            placeholder="Ingrese su código postal aquí.">
+                    </div>
+                    <div id="otros_datos" class="mt_5px">
+                        <label for="f_telefono">Teléfono:</label>
+                        <input type="text" alt="Ingrese su teléfono aquí" name="f_telefono" id="f_telefono"
+                            placeholder="Ingrese su teléfono aquí.">
+                        <label for="f_fecha_nac">Fecla de Nac.:</label>
+                        <input type="date" name="f_fecha_nac" id="f_fecha_nac" max="2004-12-31">
+                        <label for="f_mail">Mail:</label>
+                        <input type="email" name="f_mail" id="f_mail" placeholder="ejemplo@ejemplo.com"
+                            alt="Ingrese su email aquí">
+                        <label for="f_clave">Clave:</label>
+                        <input type="password" name="f_clave" id="f_clave" alt="Ingrese su clave aquí">
+                        <label for="f_link">Link de TP 3:</label>
+                        <input type="url" name="f_link" id="f_link" alt="Ingrese el link del TP 3 aquí">
+                    </div>
+                    <div id="genero" class="mt_5px">
+                        <label for="">Genero: (Radio)</label>
+                        <input type="radio" name="f_g" id="f_h" alt="Genero Hombre" value="H">
+                        <label for="f_h">Hombre</label>
+                        <input type="radio" name="f_g" id="f_m" alt="Genero Mujer" value="M">
+                        <label for="f_m">Mujer</label>
+                        <input type="radio" name="f_g" id="f_o" alt="Genero Otro" value="O">
+                        <label for="f_o">Otro</label>
+                        <input type="radio" name="f_g" id="f_na" alt="Genero Prefiero no decirlo" value="NA">
+                        <label for="f_na">Prefiero no decirlo</label>
+                    </div>
+                    <div id="conocimientos" class="mt_5px">
+                        <label for="">Conocimientos previos: (checkbox)</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_html" value="HTML"> <label
+                            for="f_html">HTML</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_css" value="CSS"> <label
+                            for="f_css">CSS</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_bt" value="BOOTSTRAP"> <label
+                            for="f_bt">Bootstrap</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_js" value="JS"> <label
+                            for="f_js">JavaScript</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_ts" value="TS"> <label
+                            for="f_ts">TypeScript</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_angular" value="ANGULAR"> <label
+                            for="f_angular">Angular</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_db" value="BD"> <label for="f_db">Base de
+                            datos</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_py" value="PYTHON"> <label
+                            for="f_py">Python</label>
+                        <input type="checkbox" name="f_conocimentos" id="f_dj" value="DJANGO"> <label
+                            for="f_dj">DJango</label>
+                    </div>
+                    <div id="estudios" class="mt_5px">
+                        <label for="f_estudios">Estudios: (Select)</label>
+                        <select name="f_estudios" id="f_estudios">
+                            <option value="1">Primaria</option>
+                            <option value="2">Secundario</option>
+                            <option value="3">Terciario</option>
+                            <option value="4">Universitario</option>
+                            <option value="5">Ninguno</option>
+                        </select>
+                    </div>
+                    <div id="comentarios" class="mt_5px">
+                        <label for="f_comentarios">Comentarios</label> <br>
+                        <textarea name="f_comentarios" id="f_comentarios" cols="30" rows="3"></textarea>
+                    </div>
+                    <input type="submit">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="piedepagina" class="fondo-negro texto-blanco">
+        <div id="imgsociales" class="centrado">
+            <img src="./media/twitter_x.png" alt="">
+            <img src="./media/facebook.png" alt="Facebook">
+            <img src="./media/pinterest.png" alt="Pinterest">
+            <img src="./media/logotipo-de-instagram.png" alt="Instagram">
+            <img src="./media/linkedin.png" alt="linkedin">
+        </div>
+        <!-- <div id="actualizado" class="infos">actualizado 2:59</div>
+                    <div id="cright" class="infos">Copyright 2024 &#169;</div> -->
+        <div id="nombre" class="infos">Derechos reservados @2020</div>
+    </footer>
+</body>
+
+</html>
