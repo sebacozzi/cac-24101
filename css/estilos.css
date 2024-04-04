@@ -1,151 +1,149 @@
-.open-sans {
+* {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+    font-variation-settings: "wdth" 100;
+    box-sizing: border-box;
 }
 
-.fondo-negro {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2.1ems;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.7em;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
     background-color: #000;
-}
-
-#section a{
-    display: block;
-}
-
-#img{
-    display: block;
-}
-
-#imgsociales img{
-    margin-top: 10px;
-    height: 20px;
-    padding: 3px;
-    /* filter: brightness(100); */
-}
-.texto-blanco {
     color: #fff;
+    height: auto;
+    display: flex;
+    align-items: center;   
 }
 
-.texto-rojo {
-    color: red;
+ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
 }
 
-.pt-15px {
-    padding-top: 15px;
-}
-.mt-15px {
-    margin-top: 15px;
-}
-
-.mar-10px{
-    margin: 10px;
-}
-
-.ml-10px {
-    margin-left: 10px;
-}
-
-.centrado {
-    text-align: center;
-    margin: 0 auto;
-}
-
-.fondo-gris {
-    background-color: gray;
-}
-
-.contenedor {
-    width: 100%;
-    display: block;
-}
-.mt_5px{
-    margin-top: 5px;
-}
-
-.boton-gris {
-    margin: 5px;
-    padding: 4px 5px 4px;
+a {
+    margin: 6px;
+    padding: 4px 5px;
     border-radius: 5px;
     color: #fff;
     background-color: rgb(189, 186, 186);
-    text-decoration: none;
-  @media (max-width:600px) {
-    font-size: 0.8em;
-    margin-left: 3px;
-    margin-right: 3px;
-  }
-}
-.seleccionado{
-    text-shadow: 2px 2px 3px black;
-    box-shadow: inset 1px 1px 3px #000,inset -1px -1px 3px #fff;
-    border: 2px solid rgb(189, 186, 186);
+    width: max-content;
+    height: max-content;
 }
 
-
-.boton-gris:hover {
-    text-shadow: 0px 0px 3px #fff;
-}
-
-.boton-gris:visited {
-    text-decoration: none;
-}
-
-.img-medium{
-    width: 40%;
-   margin: 0 auto;
-
-   
-}
-
-@media screen and (max-width:600px) {
-    .img-medium{ 
-        width:400px;
-        margin: 0 auto;
-        display: flex;
-    }
-    nav{
-        text-align: center;
-        margin: 0 auto; 
-    }
-}
 header {
+    background-color: #000;
+    color: #fff;
     position: sticky;
     top: 0;
-    margin-top: 0;
-    padding-top: 0;
+    margin: 0;
+    padding: 0;
     width: 100%;
 }
 
-.rectan {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
-    background-color: chocolate;
+header nav{
+    padding-top: 15px;
+}
+header h1 {
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+main {
+    background-color: rgb(245, 245, 245);
+    margin: 0;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+main h2 {
+    margin-top: 0;
+    padding-top: 15px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+main section{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    gap: 25px;
+    margin: 0 auto;
+    padding: 25px 0 ;
+}
+
+main .contenedor{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 45%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 15px rgba(51, 39, 39,0.3);
+        
+}
+
+main img {
+    width: 100%;
+    margin: 0;
+    border-radius: 8px;
+}
+
+.seleccionado {
+    text-shadow: 2px 2px 3px black;
+    box-shadow: inset 1px 1px 3px #000, inset -1px -1px 3px #fff;
+    border: 2px solid rgb(189, 186, 186);
 }
 
 footer {
     position: fixed;
     bottom: 0;
-    
+    height: 70px;
     width: 100%;
     z-index: 2500;
 }
 
+#imgsociales {
+    display: flex;
+    margin: 0 auto;
+    
+}
 
-.grilla {
-    display: grid;
-    grid-auto-columns: auto;
-    grid-template-areas: "a a a";
+#imgsociales img {
+    height: 20px;
+    padding: 0 2px;
+    display: flex;
+    align-items: center;
 }
 
 .infos {
-    height: 1.5em;
-    text-align: center;
-    margin: auto auto 15px auto;
-    padding-top: 10px;
+    display: flex;   
+    align-content: center;
+    margin: 0 auto;
 }
 
 #nombre:hover {
