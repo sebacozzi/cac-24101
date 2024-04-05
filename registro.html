@@ -15,15 +15,15 @@
 
 </head>
 
-<body class="open-sans">
-    <header class="fondo-negro">
-        <nav class="pt-15px ">
-            <a href="./index.html" target="#main" class="boton-gris">Home</a>
-            <a href="./acerca_de.html" target="#main" class="boton-gris">Acerca de</a>
-            <a href="./contacto.html" class="boton-gris">Contacto</a>
-            <a href="./registro.html" class="boton-gris seleccionado">Regístrese</a>
-            <a href="./registro.html" class="boton-gris">Sucursales</a>
-            <a href="./sucursales.html" class="boton-gris">Nuestros Clientes</a>
+<body>
+    <header >
+        <nav >
+            <a href="./index.html">Home</a>
+            <a href="./acerca_de.html" >Acerca de</a>
+            <a href="./contacto.html" >Contacto</a>
+            <a href="./registro.html" class="seleccionado">Regístrese</a>
+            <a href="./registro.html">Sucursales</a>
+            <a href="./sucursales.html">Nuestros Clientes</a>
         </nav>
         <div class="contenedor">
             <h1 class="centrado texto-blanco">La cocina de Juan</h1>
@@ -31,22 +31,17 @@
     </header>
 
 
-    <main>
+    <main id="Registro">
         <section id="formularioRegistro">
-
             <h2>Formulario de Registro</h2>
-            <form action="/registrado.html">
-                <div class="contenedor mar-10px" id="nomyap">
+            <form action="/registrado.html" >
                     <label for="f_nombre">Nombre:</label>
                     <input type="text" alt="Ingrese su nombre aquí" name="f_nombre" id="f_nombre"
                         placeholder="Ingrese su nombre aquí.">
                     <label for="f_apellido">Apellido:</label>
                     <input type="text" alt="Ingrese su apllido aquí" name="f_apellido" id="f_apellido"
                         placeholder="Ingrese su apllido aquí.">
-                </div>
-                <div class="contenedor mar-10px">
                     <label for="l_dir">Dirección:</label>
-                    <div id="domicilio" class="mt_5px">
                         <label for="f_calle">Calle:</label>
                         <input type="text" alt="Ingrese su calle aquí" name="f_calle" id="f_calle"
                             placeholder="Ingrese su calle aquí.">
@@ -58,8 +53,8 @@
                         <label for="f_cp">Código postal:</label>
                         <input type="text" alt="Ingrese su código postal" name="f_cp" id="f_cp"
                             placeholder="Ingrese su código postal aquí.">
-                    </div>
-                    <div id="otros_datos" class="mt_5px">
+                  
+                    
                         <label for="f_telefono">Teléfono:</label>
                         <input type="text" alt="Ingrese su teléfono aquí" name="f_telefono" id="f_telefono"
                             placeholder="Ingrese su teléfono aquí.">
@@ -72,8 +67,7 @@
                         <input type="password" name="f_clave" id="f_clave" alt="Ingrese su clave aquí">
                         <label for="f_link">Link de TP 3:</label>
                         <input type="url" name="f_link" id="f_link" alt="Ingrese el link del TP 3 aquí">
-                    </div>
-                    <div id="genero" class="mt_5px">
+                   
                         <label for="">Genero: (Radio)</label>
                         <input type="radio" name="f_g" id="f_h" alt="Genero Hombre" value="H">
                         <label for="f_h">Hombre</label>
@@ -83,8 +77,7 @@
                         <label for="f_o">Otro</label>
                         <input type="radio" name="f_g" id="f_na" alt="Genero Prefiero no decirlo" value="NA">
                         <label for="f_na">Prefiero no decirlo</label>
-                    </div>
-                    <div id="conocimientos" class="mt_5px">
+                    
                         <label for="">Conocimientos previos: (checkbox)</label>
                         <input type="checkbox" name="f_conocimentos" id="f_html" value="HTML"> <label
                             for="f_html">HTML</label>
@@ -104,8 +97,6 @@
                             for="f_py">Python</label>
                         <input type="checkbox" name="f_conocimentos" id="f_dj" value="DJANGO"> <label
                             for="f_dj">DJango</label>
-                    </div>
-                    <div id="estudios" class="mt_5px">
                         <label for="f_estudios">Estudios: (Select)</label>
                         <select name="f_estudios" id="f_estudios">
                             <option value="1">Primaria</option>
@@ -114,11 +105,10 @@
                             <option value="4">Universitario</option>
                             <option value="5">Ninguno</option>
                         </select>
-                    </div>
-                    <div id="comentarios" class="mt_5px">
+                    
                         <label for="f_comentarios">Comentarios</label> <br>
                         <textarea name="f_comentarios" id="f_comentarios" cols="30" rows="3"></textarea>
-                    </div>
+                    
                     <input type="submit">
                 </div>
             </form>

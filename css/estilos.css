@@ -1,3 +1,7 @@
+/*
+Generales
+*/
+
 * {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -57,6 +61,20 @@ a {
     height: max-content;
 }
 
+.seleccionado {
+    text-shadow: 2px 2px 3px black;
+    box-shadow: inset 1px 1px 3px #000, inset -1px -1px 3px #fff;
+    border: 2px solid rgb(189, 186, 186);
+}
+
+/*
+Generales
+*/
+
+/*
+Cabecera
+*/
+
 header {
     background-color: #000;
     color: #fff;
@@ -76,12 +94,21 @@ header h1 {
     padding: 10px 0;
 }
 
+/*
+Cabecera
+*/
+
+/*
+Main 
+*/
+
 main {
     background-color: rgb(245, 245, 245);
     margin: 0;
     margin-bottom: 70px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+
 }
 
 main h2 {
@@ -91,10 +118,13 @@ main h2 {
 }
 main section{
     display: grid;
-    grid-template-columns: 48% 48%;
-    gap: 25px;
-    margin: 0 auto;
-    padding: 25px 0 ;
+    width: 100vh;
+    grid-template-columns: repeat(2, 49%); 
+    flex-direction: column;
+   
+    justify-content:space-around;
+    gap: 1.7% 1%;
+    margin: 15px 10px;
 }
 
 main .contenedor{
@@ -104,7 +134,7 @@ main .contenedor{
     min-width: 45%;
     border-radius: 15px;
     box-shadow: 2px 2px 15px rgba(51, 39, 39,0.3);
-        
+    border: 1px solid rgba(0, 0, 0, 0.2) #006600;    
 }
 
 main img {
@@ -113,11 +143,13 @@ main img {
     border-radius: 8px;
 }
 
-.seleccionado {
-    text-shadow: 2px 2px 3px black;
-    box-shadow: inset 1px 1px 3px #000, inset -1px -1px 3px #fff;
-    border: 2px solid rgb(189, 186, 186);
-}
+/*
+Main 
+*/
+
+/*
+Pie de Pagina
+*/
 
 footer {
     position: fixed;
@@ -125,6 +157,8 @@ footer {
     height: 70px;
     width: 100%;
     z-index: 2500;
+    display: flex;
+    grid-template-columns: auto auto;
 }
 
 #imgsociales {
@@ -136,14 +170,13 @@ footer {
 #imgsociales img {
     height: 20px;
     padding: 0 2px;
-    display: flex;
     align-items: center;
 }
 
 .infos {
-    display: flex;   
+     
     align-content: center;
-    margin: 0 auto;
+    
 }
 
 #nombre:hover {
@@ -168,3 +201,41 @@ footer {
         transform: rotateZ(0deg);
     }
 }
+
+/*
+Pie de Pagina
+*/
+
+@media screen and (max-width:500px) {
+    header h1{
+        font-size: 1.8em;
+    }
+
+    
+    .infos{
+        font-size: 0.7em;
+        width: min-content;
+        margin: 0 auto;
+    }
+    
+    #imgsociales img {
+        height: 10px;
+    a{
+        font-size: 0.5em;
+        padding: 2px;
+        margin: 2px;
+    }
+    main section{
+        grid-template-columns: 98%;
+    } 
+}
+
+/*Formulario de Registros*/
+
+main #formularioRegistro{
+    grid-template-columns: none;
+    justify-content: initial;
+}
+ main label input{
+    display:block;
+ }
