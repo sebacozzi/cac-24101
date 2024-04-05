@@ -17,6 +17,7 @@ html {
 
 body {
     margin: 0;
+    
 }
 
 h1 {
@@ -42,7 +43,7 @@ footer {
     color: #fff;
     height: auto;
     display: flex;
-    align-items: center;   
+    align-items: center;
 }
 
 ul {
@@ -85,9 +86,10 @@ header {
     width: 100%;
 }
 
-header nav{
+header nav {
     padding-top: 15px;
 }
+
 header h1 {
     margin: 0;
     text-align: center;
@@ -116,25 +118,26 @@ main h2 {
     padding-top: 15px;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
-main section{
+
+main section {
     display: grid;
-    width: 100vh;
-    grid-template-columns: repeat(2, 49%); 
+    width: 100%;
+    grid-template-columns: repeat(2, 49%);
     flex-direction: column;
-   
-    justify-content:space-around;
+
+    justify-content: space-around;
     gap: 1.7% 1%;
     margin: 15px 10px;
 }
 
-main .contenedor{
+main .contenedor {
     display: flex;
     flex-direction: column;
     padding: 10px;
     min-width: 45%;
     border-radius: 15px;
-    box-shadow: 2px 2px 15px rgba(51, 39, 39,0.3);
-    border: 1px solid rgba(0, 0, 0, 0.2) #006600;    
+    box-shadow: 2px 2px 15px rgba(51, 39, 39, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2) #006600;
 }
 
 main img {
@@ -164,7 +167,7 @@ footer {
 #imgsociales {
     display: flex;
     margin: 0 auto;
-    
+
 }
 
 #imgsociales img {
@@ -174,9 +177,9 @@ footer {
 }
 
 .infos {
-     
+
     align-content: center;
-    
+
 }
 
 #nombre:hover {
@@ -207,35 +210,50 @@ Pie de Pagina
 */
 
 @media screen and (max-width:500px) {
-    header h1{
+    header h1 {
         font-size: 1.8em;
     }
 
-    
-    .infos{
+
+    .infos {
         font-size: 0.7em;
         width: min-content;
         margin: 0 auto;
     }
-    
+
     #imgsociales img {
         height: 10px;
-    a{
-        font-size: 0.5em;
-        padding: 2px;
-        margin: 2px;
+
+        a {
+            font-size: 0.5em;
+            padding: 2px;
+            margin: 2px;
+        }
     }
-    main section{
-        grid-template-columns: 98%;
-    } 
+    main {
+        margin-bottom: 0;
+    }
+    main section {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+    }
+    footer{
+        position: relative;
+        width: 100%;
+    }
+    ul{
+        /* grid */
+    }
 }
 
 /*Formulario de Registros*/
 
-main #formularioRegistro{
+main #formularioRegistro {
     grid-template-columns: none;
     justify-content: initial;
 }
- main label input{
-    display:block;
- }
+
+main label input {
+    display: block;
+}
