@@ -17,7 +17,7 @@ html {
 
 body {
     margin: 0;
-    
+
 }
 
 h1 {
@@ -121,13 +121,13 @@ main h2 {
 
 main section {
     display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 49%);
+    width: 98%;
+    grid-template-columns: repeat(2, auto);
     flex-direction: column;
 
     justify-content: space-around;
     gap: 1.7% 1%;
-    margin: 15px 10px;
+    margin: 15px auto;
 }
 
 main .contenedor {
@@ -162,22 +162,24 @@ footer {
     z-index: 2500;
     display: flex;
     grid-template-columns: auto auto;
+    align-items: center;
 }
 
 #imgsociales {
     display: flex;
     margin: 0 auto;
 
+    img {
+        height: 20px;
+        padding: 0 2px;
+        align-items: center;
+    }
 }
 
-#imgsociales img {
-    height: 20px;
-    padding: 0 2px;
-    align-items: center;
-}
-
+/* #imgsociales img {}
+ */
 .infos {
-
+    margin: 0 auto;
     align-content: center;
 
 }
@@ -210,8 +212,17 @@ Pie de Pagina
 */
 
 @media screen and (max-width:500px) {
-    header h1 {
-        font-size: 1.8em;
+    header {
+
+        a {
+            font-size: 0.5em;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+        }
     }
 
 
@@ -224,27 +235,25 @@ Pie de Pagina
     #imgsociales img {
         height: 10px;
 
-        a {
-            font-size: 0.5em;
-            padding: 2px;
-            margin: 2px;
-        }
+
     }
+
     main {
         margin-bottom: 0;
     }
+
     main section {
         display: flex;
         flex-direction: column;
         grid-template-columns: none;
     }
-    footer{
+
+    footer {
         position: relative;
         width: 100%;
     }
-    ul{
-        /* grid */
-    }
+
+    ul {}
 }
 
 /*Formulario de Registros*/
