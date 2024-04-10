@@ -4,68 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codo a Codo - La cocina de Juan</title>
+    <title>CAC Peliculas</title>
 
     <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
 </head>
 
 <body>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="./index.html" class="seleccionado">Home</a></li>
-                <li><a href="./acerca_de.html">Acerca de</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-                <li><a href="./registro.html">Regístrese</a></li>
-                <li><a href="./registro.html">Sucursales</a></li>
-                <li><a href="./sucursales.html">Nuestros Clientes</a></li>
-            </ul>
-        </nav>
-        <div class="contenedor">
-            <h1 class="centrado texto-blanco">La cocina de Juan</h1>
+        <div class="contenedor" id="inicio">
+            <div class="logo">
+                <h1><img src="./media/film.svg" alt="" style="color: whites;"> CAC-Movies</h1>
+            </div>
+            <div class="acciones">
+                <ul>
+                    <li><a href="./tendencias.html">Tendencias</a></li>
+                    <li><a href="./registro.html">Registrarse</a></li>
+                    <li><a href="./login.html">Iniciar Sesión</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="articulo1">
+        <section id="hero">
+            <h2>Películas y series ilimitadas<br>en un solo lugar</h2>
+            <p>Disfrutas donde quieras.<br> Cancelas en cualquier momento.</p>
+            <a href="./registro.html">Registrate
+            </a>
+        </section>
+
+        <section id="buscar">
+            <h3>¿Qué estas buscando para ver?</h3>
+            <form action="" method="post" class="busqueda">
+                <input type="text" placeholder="Buscar...">
+                <button type="button">Buscar</button>
+            </form>
+        </section>
+
+        <div class="separador">
+            <hr>
+        </div>
+
+        <section id="tendencias">
+            <h3>Las tendencias de hoy</h3>
             <div class="contenedor">
-                <h2>Sopa crema de Calabaza</h2>
-                <img src="./media/sopacalabaza.jpg" alt="Sopa crema de Calabaza">
-                <a href="">Receta</a>
+                <div class="cartas">
+                    <div class="carta">
+                        <img src="./media/peli1.jpg" alt="">
+                        <p>Pelicula 1</p>
+                    </div>
+                    <div class="carta">
+                        <img src="./media/peli2.jpg" alt="">
+                        <p>Pelicula 2</p>
+                    </div>
+                    <div class="carta">
+                        <img src="./media/peli3.jpg" alt="">
+                        <p>Pelicula 3</p>
+                    </div>
+                    <div class="carta">
+                        <img src="./media/peli4.jpg" alt="">
+                        <p>Pelicula 4</p>
+                    </div>
+                    <div class="carta">
+                        <img src="./media/peli5.jpg" alt="">
+                        <p>Pelicula 5</p>
+                    </div>
+                </div>
             </div>
+            <form class="navega">
+                <button type="button">Anterior</button>
+                <button type="button">Siguiente</button>
+            </form>
+        </section>
 
-    
-    <div class="contenedor">
-        <h2>Sopa crema de Calabaza</h2>
-        <img src="./media/sopacalabaza.jpg" alt="Sopa crema de Calabaza">
-        <a href="">Receta</a>
-    </div>
-    <div class="contenedor">
-        <h2>Sopa crema de Calabaza</h2>
-        <img src="./media/sopacalabaza.jpg" alt="Sopa crema de Calabaza">
-        <a href="">Receta</a>
-    </div>
-    
+        <div class="separador">
+            <hr>
+        </div>
 
-</section>
+        <section id="aclamandas">
+            <div class="contenedor">
+                <h3>Las más aclamadas</h3>
+                <div class="contenedor">
+                    <div class="cartas">
+                        <div class="carta">
+                            <img src="./media/peli6.jpg" alt="">
+                            <p>Pelicula 6</p>
+                        </div>
+                        <div class="carta">
+                            <img src="./media/peli7.jpg" alt="">
+                            <p>Pelicula 7</p>
+                        </div>
+                        <div class="carta">
+                            <img src="./media/peli8.jpg" alt="">
+                            <p>Pelicula 8</p>
+                        </div>
+                        <div class="carta">
+                            <img src="./media/peli9.jpg" alt="">
+                            <p>Pelicula 9</p>
+                        </div>
+                        <div class="carta">
+                            <img src="./media/peli10.jpg" alt="">
+                            <p>Pelicula 10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer id="piedepagina">
-        <div id="imgsociales">
-            <img src="./media/twitter_x.png" alt="">
-            <img src="./media/facebook.png" alt="Facebook">
-            <img src="./media/pinterest.png" alt="Pinterest">
-            <img src="./media/logotipo-de-instagram.png" alt="Instagram">
-            <img src="./media/linkedin.png" alt="linkedin">
+    <footer>
+        <div class="contenedor">
+            <ul>
+                <li><a href="./terminos.html">Términos y condiciones</a></li>
+                <li><a href="./preguntas.html">Preguntas Frecuentes</a></li>
+                <li><a href="ayuda.html">Ayuda</a></li>
+                <li><a href="./admin-peliculas.html">Administrador Peliculas</a></li>
+            </ul>
+
         </div>
-        <div id="nombre" class="infos">Sebastian Cozzi</div>
     </footer>
+
+    <div class="subir"><a href="#inicio"></a></div>
+
+    
 </body>
 
 </html>

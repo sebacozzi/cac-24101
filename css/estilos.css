@@ -1,268 +1,192 @@
-/*
-Generales
-*/
-
 * {
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
     box-sizing: border-box;
+    margin: 0;
+    --color-superior: brown;
+    --color-fuente: white;
+
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
     margin: 0;
-
-}
-
-h1 {
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 2.1ems;
-    font-weight: bold;
-}
-
-p {
-    font-size: 1.7em;
+    color: var(--color-fuente);
+    background-color: rgb(30, 30, 30);
+    font-family: "PT Sans", sans-serif;
+    font-size: 1.2em;
 }
 
 a {
     text-decoration: none;
+    color: white;
+    background-color: var(--color-superiors);
+    padding: 3px 10px;
+    border-radius: 6px;
+    transition: box-shadow 0.3s;
+    &:hover {
+        box-shadow: 0px 3px 6px rgba(30, 30, 30, 0.6);
+        transition: box-shadow 0.3s;
+    }
 }
 
-footer {
-    background-color: #000;
-    color: #fff;
-    height: auto;
-    display: flex;
-    align-items: center;
+li {
+    padding: 7px;
+
+    &:nth-last-child(1) {
+        a {
+            background-color: black;
+            box-shadow: none;
+        }
+    }
+
+    display: inline;
 }
 
 ul {
-    margin: 0;
-    display: flex;
     list-style: none;
+    display: flex;
 }
 
-a {
-    margin: 6px;
-    padding: 4px 5px;
-    border-radius: 5px;
-    color: #fff;
-    background-color: rgb(189, 186, 186);
-    width: max-content;
-    height: max-content;
+header,
+footer {
+    margin: 0;
+    background-color: var(--color-superior);
+    height: 4em;
 }
 
-.seleccionado {
-    text-shadow: 2px 2px 3px black;
-    box-shadow: inset 1px 1px 3px #000, inset -1px -1px 3px #fff;
-    border: 2px solid rgb(189, 186, 186);
+button {
+    background-color: var(--color-superior);
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 100px;
+    color: var(--color-fuente);
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/*
-Generales
-*/
-
-/*
-Cabecera
-*/
+/* Estilos especificos */
 
 header {
-    background-color: #000;
-    color: #fff;
-    position: sticky;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    display: flex;
+
+    .contenedor {
+        width: 100%;
+        padding: 0px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    h1 {
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
 }
-
-header nav {
-    padding-top: 15px;
-}
-
-header h1 {
-    margin: 0;
-    text-align: center;
-    padding: 10px 0;
-}
-
-/*
-Cabecera
-*/
-
-/*
-Main 
-*/
 
 main {
-    background-color: rgb(245, 245, 245);
-    margin: 0;
-    margin-bottom: 70px;
-    /* display: flex;
-    flex-direction: column; */
-
-}
-
-main h2 {
-    margin-top: 0;
-    padding-top: 15px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-main section {
-    display: grid;
-    width: 98%;
-    grid-template-columns: repeat(2, auto);
-    flex-direction: column;
-
-    justify-content: space-around;
-    gap: 1.7% 1%;
-    margin: 15px auto;
-}
-
-main .contenedor {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    min-width: 45%;
-    border-radius: 15px;
-    box-shadow: 2px 2px 15px rgba(51, 39, 39, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.2) #006600;
-}
-
-main img {
-    width: 100%;
-    margin: 0;
-    border-radius: 8px;
-}
-
-/*
-Main 
-*/
-
-/*
-Pie de Pagina
-*/
-
-footer {
-    position: fixed;
-    bottom: 0;
-    height: 70px;
-    width: 100%;
-    z-index: 2500;
-    display: flex;
-    grid-template-columns: auto auto;
-    align-items: center;
-}
-
-#imgsociales {
-    display: flex;
-    margin: 0 auto;
-
-    img {
-        height: 20px;
-        padding: 0 2px;
-        align-items: center;
-    }
-}
-
-/* #imgsociales img {}
- */
-.infos {
-    margin: 0 auto;
-    align-content: center;
-
-}
-
-#nombre:hover {
-    animation: 1.2s ease 0s infinite rota;
-}
-
-@keyframes rota {
-    0% {
-        transform: rotateZ(0deg);
+    hr {
+        width: 75%;
+        border: 1.5px solid brown;
+        margin: 20px auto;
+        
     }
 
-    33% {
-        transform: rotateZ(10deg) rotateY(30deg) scale(1.5);
+    #hero {
 
-    }
-
-    66% {
-        transform: rotateZ(-10deg) rotateY(-25deg) rotateX(25deg);
-    }
-
-    100% {
-        transform: rotateZ(0deg);
-    }
-}
-
-/*
-Pie de Pagina
-*/
-
-@media screen and (max-width:500px) {
-    header {
-
-        a {
-            font-size: 0.5em;
-            padding: 2px;
-            margin: 2px;
-        }
-
-        h1 {
-            font-size: 1.8em;
-        }
-    }
-
-
-    .infos {
-        font-size: 0.7em;
-        width: min-content;
-        margin: 0 auto;
-    }
-
-    #imgsociales img {
-        height: 10px;
-
-
-    }
-
-    main {
-        margin-bottom: 0;
-    }
-
-    main section {
+        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/Ejercicios/html/media/banner-bg.jpg");
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: cover;
+        height: calc( 100vh - 4em);
         display: flex;
+        align-items: center;
+        flex-wrap: wrap;
         flex-direction: column;
-        grid-template-columns: none;
+        justify-content: center;
+
+        h2 {
+            text-align: center;
+            font-size: 3em;
+        }
+        p{
+            font-size: 1.5em;
+            text-align: center;
+        }
+        a{
+            font-size: 1.2em;
+            font-weight: 700;
+            margin: 25px;
+            padding: 12px 22px;
+            background-color: var(--color-superior);
+            transition: transform 0.2s;
+            &:hover{
+                transform: scale(0.95);
+                transition: transform 0.2s;
+                
+            }
+        }
     }
 
-    footer {
-        position: relative;
-        width: 100%;
+    #buscar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40vh;
+        h3{  
+            font-size: 1.7em;
+        }
+        .busqueda{
+            display: flex;
+            flex-wrap: wrap;
+            width: 450px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            input{
+                width: 75%;
+                height: 75%;
+                border-radius: 100px;
+                border: 2px solid white;
+                font-size: 1em;
+                padding: 0 20px;
+                outline: none;
+            
+            }
+        }
     }
 
-    ul {}
+    #tendencias{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        justify-content: center;
+        margin-bottom: 20px;
+        h3{
+            font-size: 1.7em;
+            padding: 25px;
+        }
+    }
 }
 
-/*Formulario de Registros*/
+.subir{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    mask-image: url(../media/flecha-hacia-arriba.png);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    mask-position: center;
 
-main #formularioRegistro {
-    grid-template-columns: none;
-    justify-content: initial;
-}
-
-main label input {
-    display: block;
+    img{
+        border-radius: 20px;
+        background-color: transparent;
+    }
 }
