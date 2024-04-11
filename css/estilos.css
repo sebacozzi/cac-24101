@@ -21,6 +21,7 @@ a {
     padding: 3px 10px;
     border-radius: 6px;
     transition: box-shadow 0.3s;
+
     &:hover {
         box-shadow: 0px 3px 6px rgba(30, 30, 30, 0.6);
         transition: box-shadow 0.3s;
@@ -29,18 +30,24 @@ a {
 
 li {
     padding: 7px;
+    text-align: center;
+    text-wrap: nowrap;
+    font-size: 2vw;
     &:nth-last-child(1) {
         a {
             background-color: black;
             box-shadow: none;
         }
     }
+
     display: inline;
 }
 
 ul {
     list-style: none;
+    text-align: center;
     display: flex;
+    margin-bottom: 0;
 }
 
 header,
@@ -61,10 +68,16 @@ button {
 }
 
 
+
 /* Estilos especificos */
 
 header {
+    position: fixed;
+    width: 100%;
     display: flex;
+    top: 0;
+    z-index: 10;
+
     .contenedor {
         width: 100%;
         padding: 0px 30px;
@@ -73,6 +86,7 @@ header {
         align-items: center;
         justify-content: space-between;
     }
+
     h1 {
         font-size: 1em;
         margin: 0;
@@ -81,43 +95,52 @@ header {
 }
 
 main {
+    user-select: none;
+    margin-top: 4em;
+
     hr {
         width: 75%;
         border: 1.7px solid brown;
         margin: 20px auto;
     }
+
     #hero {
-        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/Ejercicios/html/media/banner-bg.jpg");
+        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/Ejercicios/html/media/banner-bg.jpg");
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: cover;
-        height: calc( 100vh - 4em);
+        height: calc(100vh - 4em);
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
+
         h2 {
             text-align: center;
-            font-size: 3em;
+            font-size: 5.5vw;/* calc(100% / 1577px *3em); */
         }
+
         p {
-            font-size: 1.5em;
+            font-size: 2vw;
             text-align: center;
         }
+
         a {
-            font-size: 1.2em;
+            font-size: 1.6vw;
             font-weight: 700;
             margin: 25px;
             padding: 12px 22px;
             background-color: var(--color-superior);
             transition: transform 0.2s;
+
             &:hover {
                 transform: scale(0.95);
                 transition: transform 0.2s;
             }
         }
     }
+
     #buscar {
         display: flex;
         flex-wrap: wrap;
@@ -125,9 +148,11 @@ main {
         align-items: center;
         justify-content: center;
         height: 40vh;
+
         h3 {
             font-size: 1.7em;
         }
+
         .busqueda {
             display: flex;
             flex-wrap: wrap;
@@ -135,6 +160,7 @@ main {
             align-items: center;
             justify-content: space-between;
             margin-top: 20px;
+
             input {
                 width: 75%;
                 height: 75%;
@@ -146,52 +172,145 @@ main {
             }
         }
     }
-    #tendencias {
+
+    .carta {
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
         align-items: center;
-        margin-top: 50px;
         justify-content: center;
-        margin-bottom: 20px;
+        /* width: calc(25%-5px); */
+        margin-bottom: 10px;
+        max-height: 300px;
+
+        img {
+            max-width: 85%;
+            max-height: 300px;
+            border-radius: 15px;
+            transition: all 0.7s;
+        }
+
+        p {
+            position: absolute;
+            z-index: 2;
+            opacity: 0;
+            margin: 0;
+            font-size: 1.7em;
+            font-weight: 700;
+            transition: all 0.8s;
+            text-align: center;
+            max-width: 20%;
+            text-shadow: 0 0 10px black;
+        }
+
+        &:hover {
+
+            img {
+                transform: scale(0.9);
+                filter: blur(5px);
+                fill: aliceblue;
+                box-shadow: 3px 3px 20px var(--color-superior);
+                transition: all 0.7s;
+            }
+
+            p {
+                transform: scale(0.8);
+                opacity: 1;
+                transition: all 0.7s;
+            }
+        }
+    }
+
+    #tendencias {
+        display: flex;
+        flex-direction: column;
+        box-sizing: content-box;
+        align-items: center;
+
         h3 {
             font-size: 1.7em;
             padding: 25px;
         }
+
         .contenedor {
+            width: 100%;
+        }
+
+        .cartas {
+            --countar:calc(100% /300px);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 280px);
+            justify-content: center;
+            
+        }
+        
+        
+    }
+
+    #aclamadas {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        box-shadow: inset 0px 2px 50px rgba(255, 255, 255, 0.466);
+        .contenedor{
+            overflow-x: scroll;
+        overflow-y: hidden; 
+            width: 95%;  
+            
+            margin: 15px 0;
+        }
+
+        .cartas{
             display: flex;
-            align-items: center;
-            margin: 0 auto;
-            .cartas {
-                display: grid;
-                flex-direction: row;
-                gap: 10px;
-                grid-template-columns: repeat(3, calc((100% - 50px)/3));
-            }
-            .carta {
+            width: 90%;
+            height: 310px;
+            margin-bottom: 0;
+            .carta{
                 display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
-                border: 2px solid black;
-                border-radius: 20px;
-                img {
-                    width: 80%;
-                    padding: 10px;
-                    border-radius: 15px;
+                flex-direction: column;
+                min-width: 250px;
+                 p {
+                    visibility: hidden;
+                    &:hover {
+                        visibility: hidden;
+                    }
+                }
+                &:hover img{
+                    filter: none;
                 }
             }
+
+        }
+        
+        ::-webkit-scrollbar{
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgb(23, 23, 23);
+        }
+           
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #9f3647;
         }
     }
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
 
 .subir {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    width: 25px;
-    height: 25px;
-    background-color: white;
+    font-size: 1.5em;
+    color: black !important;
+    /* background-color: white;
     mask-image: url(../media/flecha-hacia-arriba.png);
     mask-repeat: no-repeat;
     mask-size: cover;
@@ -199,5 +318,5 @@ main {
     img {
         border-radius: 20px;
         background-color: transparent;
-    }
+    } */
 }
