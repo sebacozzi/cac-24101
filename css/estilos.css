@@ -1,12 +1,11 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     --color-superior: brown;
     --color-fuente: white;
-
 }
 
-html {
+body {
+    box-sizing: border-box;
     scroll-behavior: smooth;
     margin: 0;
     color: var(--color-fuente);
@@ -30,14 +29,12 @@ a {
 
 li {
     padding: 7px;
-
     &:nth-last-child(1) {
         a {
             background-color: black;
             box-shadow: none;
         }
     }
-
     display: inline;
 }
 
@@ -63,11 +60,11 @@ button {
     font-size: 0.9rem;
 }
 
+
 /* Estilos especificos */
 
 header {
     display: flex;
-
     .contenedor {
         width: 100%;
         padding: 0px 30px;
@@ -76,7 +73,6 @@ header {
         align-items: center;
         justify-content: space-between;
     }
-
     h1 {
         font-size: 1em;
         margin: 0;
@@ -87,14 +83,11 @@ header {
 main {
     hr {
         width: 75%;
-        border: 1.5px solid brown;
+        border: 1.7px solid brown;
         margin: 20px auto;
-        
     }
-
     #hero {
-
-        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/Ejercicios/html/media/banner-bg.jpg");
+        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/Ejercicios/html/media/banner-bg.jpg");
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: cover;
@@ -104,48 +97,45 @@ main {
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
-
         h2 {
             text-align: center;
             font-size: 3em;
         }
-        p{
+        p {
             font-size: 1.5em;
             text-align: center;
         }
-        a{
+        a {
             font-size: 1.2em;
             font-weight: 700;
             margin: 25px;
             padding: 12px 22px;
             background-color: var(--color-superior);
             transition: transform 0.2s;
-            &:hover{
+            &:hover {
                 transform: scale(0.95);
                 transition: transform 0.2s;
-                
             }
         }
     }
-
-    #buscar{
+    #buscar {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 40vh;
-        h3{  
+        h3 {
             font-size: 1.7em;
         }
-        .busqueda{
+        .busqueda {
             display: flex;
             flex-wrap: wrap;
             width: 450px;
             align-items: center;
             justify-content: space-between;
             margin-top: 20px;
-            input{
+            input {
                 width: 75%;
                 height: 75%;
                 border-radius: 100px;
@@ -153,12 +143,10 @@ main {
                 font-size: 1em;
                 padding: 0 20px;
                 outline: none;
-            
             }
         }
     }
-
-    #tendencias{
+    #tendencias {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -166,14 +154,38 @@ main {
         margin-top: 50px;
         justify-content: center;
         margin-bottom: 20px;
-        h3{
+        h3 {
             font-size: 1.7em;
             padding: 25px;
+        }
+        .contenedor {
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+            .cartas {
+                display: grid;
+                flex-direction: row;
+                gap: 10px;
+                grid-template-columns: repeat(3, calc((100% - 50px)/3));
+            }
+            .carta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid black;
+                border-radius: 20px;
+                img {
+                    width: 80%;
+                    padding: 10px;
+                    border-radius: 15px;
+                }
+            }
         }
     }
 }
 
-.subir{
+.subir {
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -184,8 +196,7 @@ main {
     mask-repeat: no-repeat;
     mask-size: cover;
     mask-position: center;
-
-    img{
+    img {
         border-radius: 20px;
         background-color: transparent;
     }
