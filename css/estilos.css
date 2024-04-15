@@ -2,7 +2,11 @@
     margin: 0;
     --color-superior: brown;
     --color-fuente: white;
-    --color-fondo:rgb(30,30,30);
+    --color-fondo: rgb(30, 30, 30);
+}
+
+html {
+    display: block;
 }
 
 body {
@@ -13,9 +17,11 @@ body {
     background-color: var(--color-fondo);
     font-family: "PT Sans", sans-serif;
     font-size: 1.2em;
+
+    /* overflow-x: hidden; */
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 12px;
 }
 
@@ -46,6 +52,7 @@ li {
     text-align: center;
     text-wrap: nowrap;
     font-size: 1.5vw;
+
     &:nth-last-child(1) {
         a {
             background-color: black;
@@ -73,11 +80,12 @@ footer {
 button {
     background-color: var(--color-superior);
     border: 2px solid rgb(211, 211, 211);
-    border-radius: 100px;
+    border-radius: 5px;
     color: var(--color-fuente);
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-weight: bold;
     font-size: 0.9rem;
+    margin: 0 5px;
 }
 
 
@@ -87,6 +95,7 @@ button {
 header {
     position: fixed;
     width: 100%;
+    /*  */
     display: flex;
     top: 0;
     z-index: 10;
@@ -132,9 +141,10 @@ main {
 
         h2 {
             text-align: center;
-            font-size: 5.5vw;/* calc(100% / 1577px *3em); */
+            font-size: 5.5vw;
+            /* calc(100% / 1577px *3em); */
             font-optical-sizing: auto;
-            
+
         }
 
         p {
@@ -172,65 +182,19 @@ main {
         .busqueda {
             display: flex;
             flex-wrap: wrap;
-            width: 450px;
+
             align-items: center;
             justify-content: space-between;
             margin-top: 20px;
 
             input {
-                width: 75%;
+                width: 65%;
                 height: 75%;
                 border-radius: 100px;
                 border: 2px solid white;
                 font-size: 1em;
                 padding: 0 20px;
                 outline: none;
-            }
-        }
-    }
-
-    .carta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 10px;
-        max-height: 300px;
-
-        img {
-            max-width: 85%;
-            max-height: 300px;
-            border-radius: 15px;
-            transition: all 0.7s;
-        }
-
-        p {
-            position: absolute;
-            z-index: 2;
-            opacity: 0;
-            margin: 0;
-            font-size: 1.7em;
-            font-weight: 700;
-            transition: all 0.8s;
-            text-align: center;
-            max-width: 20%;
-            text-shadow: 0 0 10px black;
-        }
-
-        &:hover {
-
-            img {
-                transform: scale(0.9);
-                filter: blur(5px);
-                fill: aliceblue;
-                box-shadow: 3px 3px 20px var(--color-superior);
-                transition: all 0.7s;
-            }
-
-            p {
-                transform: scale(0.8);
-                opacity: 1;
-                transition: all 0.7s;
             }
         }
     }
@@ -251,65 +215,113 @@ main {
         }
 
         .cartas {
-           
+
             display: grid;
             grid-template-columns: repeat(auto-fit, 280px);
             justify-content: center;
-            
+
+            .carta {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+                max-height: 300px;
+
+                img {
+                    max-width: 85%;
+                    max-height: 300px;
+                    border-radius: 15px;
+                    transition: all 0.7s;
+                }
+
+                p {
+                    position: absolute;
+                    z-index: 2;
+                    opacity: 0;
+                    margin: 0;
+                    font-size: 1.7em;
+                    font-weight: 700;
+                    transition: all 0.8s;
+                    text-align: center;
+                    max-width: 20%;
+                    min-width: 200px;
+                    text-shadow: 0 0 10px black;
+                }
+
+                &:hover {
+
+                    img {
+                        transform: scale(0.9);
+                        filter: blur(5px);
+                        fill: aliceblue;
+                        box-shadow: 3px 3px 20px var(--color-superior);
+                        transition: all 0.7s;
+                    }
+
+                    p {
+                        transform: scale(0.8);
+                        opacity: 1;
+                        transition: all 0.7s;
+                    }
+                }
+            }
         }
-        
-        
+
+
     }
 
     #aclamadas {
-        
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 20px;
-        /* box-shadow: inset 0px 2px 50px rgba(255, 255, 255, 0.466); */
-        .contenedor{
-            overflow-x: scroll;
-        overflow-y: hidden; 
-            width: 95%;  
-            
-            margin: 15px 0;
+        justify-content: center;
+
+        p {
+            visibility: hidden;
+            position: absolute;
         }
 
-        .cartas{
-            display: flex;
-            width: 90%;
-            height: 310px;
-            margin-bottom: 0;
-            .carta{
-                display: flex;
-                flex-direction: column;
-                min-width: 250px;
-                 p {
-                    visibility: hidden;
-                    &:hover {
-                        visibility: hidden;
+        .contenedor {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            width: 1100px;
+            margin-bottom: 40px;
+
+            .cartas {
+                padding: 1px;
+                display:flex;
+                
+                .carta {
+                    margin: 10px;
+                    min-width: 200px;
+                    border-radius: 15px;
+                    display: flex;
+                    justify-content: center;
+
+                    img {
+                        height: 200px;
+                        max-width: 200px;
+                        margin: 10px 10px;
+                        border-radius: 10px;
+                        box-shadow: 1px 1px 20px var(--color-superior);
                     }
                 }
-                &:hover img{
-                    filter: none;
-                }
             }
-
-        }        
+        }
     }
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
-    ul{
+
+    ul {
         padding: 0;
 
-        li{
+        li {
             padding: 0;
         }
     }
@@ -322,57 +334,90 @@ footer{
     bottom: 20px;
     font-size: 1.5em;
     color: black !important;
-    /* background-color: white;
-    mask-image: url(../media/flecha-hacia-arriba.png);
-    mask-repeat: no-repeat;
-    mask-size: cover;
-    mask-position: center;
-    img {
-        border-radius: 20px;
-        background-color: transparent;
-    } */
+
 }
 
 /* Media Query */
 
-@media screen and (max-width:500px) {
-    li{
+@media screen and (max-width:600px) {
+    li {
         font-size: 3vw;
     }
-    
-    a{
+
+    a {
         font-size: 1em;
     }
-    
-    header{
-        flex-direction: row;
+
+    header {
+        flex-direction: column;
         justify-content: center;
         height: 5em;
-        h1{
-            font-size: 2em;
+        width: 100%;
+
+        h1 {
+            font-size: 1.5em;
         }
-        .contenedor{
+
+        .contenedor {
             justify-content: center;
-            ul{
+            flex-direction: column;
+
+            ul {
                 padding: 0;
             }
         }
     }
-    main{
-        top:5em;
-        #presentacion{
-            height:  calc(100vh - 5em);
+
+    main {
+        margin-top: 5em;
+
+        #presentacion {
+            height: calc(100vh - 5em);
             display: flexbox;
             flex-direction: column;
             justify-content: center;
-            h2{
+
+            h2 {
                 font-size: 6vw;
             }
-            
+
+        }
+
+        #aclamadas {
+
+
+            .cartas {
+                width: auto;
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
+                overflow-inline: clip;
+            }
         }
     }
 
-    .subir{
-        a{font-size: 1em ;}
+    footer {
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: 7em;
+
+        ul {
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            li {
+                padding: 3px 0;
+            }
+        }
+    }
+
+    .subir {
+
+        right: 10px;
+        bottom: 10px;
+
+        a {
+            font-size: 1em;
+        }
     }
 }
