@@ -3,11 +3,15 @@
     --color-superior: brown;
     --color-fuente: white;
     --color-fondo: rgb(30, 30, 30);
+    --altura-footer: 4em;
+    --altura-header: 4em;
 }
 
-html {
+/* html {
     display: block;
-}
+    margin: 0;
+     
+} */
 
 body {
     box-sizing: border-box;
@@ -16,9 +20,12 @@ body {
     color: var(--color-fuente);
     background-color: var(--color-fondo);
     font-family: "PT Sans", sans-serif;
-    font-size: 1.2em;
-
-    /* overflow-x: hidden; */
+    font-size: calc(1em + 0.2em);
+    user-select: none;
+    #inicio{
+        position: absolute;
+        top:calc(var(--altura-header)*-1);
+    }
 }
 
 ::-webkit-scrollbar {
@@ -74,7 +81,7 @@ header,
 footer {
     margin: 0;
     background-color: var(--color-superior);
-    height: 4em;
+    height: var(--altura-footer);
 }
 
 button {
@@ -93,15 +100,15 @@ button {
 /* Estilos especificos */
 
 header {
-    position: fixed;
-    width: 100%;
-    /*  */
+    position: sticky;
     display: flex;
     top: 0;
     z-index: 10;
-
-    .contenedor {
+    width: 100%;
+    
+    .contenedor-h {
         width: 100%;
+        height: 100%;
         padding: 0px 30px;
         display: flex;
         flex-wrap: wrap;
@@ -114,12 +121,36 @@ header {
         font-weight: 700;
         margin: 0;
         padding: 0;
-    }
+        a{
+            background-color: none;
+            padding: 0;
+            border-radius: 0;
+            transition: none;
+        
+            &:hover {
+                box-shadow:none;
+                transition: none;
+            }   
+        }
+         }
 }
 
+/* Footer fijo */
+/* body {
+    main {
+        margin-top: var(--altura-header);
+    }
+    main #aclamadas{
+        margin-bottom: var(--altura-footer);
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+}  */
+
 main {
-    user-select: none;
-    margin-top: 4em;
 
     hr {
         width: 75%;
@@ -176,7 +207,7 @@ main {
         height: 40vh;
 
         h3 {
-            font-size: 1.7em;
+            font-size: 1.9em;
         }
 
         .busqueda {
@@ -206,7 +237,7 @@ main {
         align-items: center;
 
         h3 {
-            font-size: 1.7em;
+            font-size: 2em;
             padding: 25px;
         }
 
@@ -277,24 +308,30 @@ main {
         align-items: center;
         justify-content: center;
 
+        h3{
+            font-size: 2em;
+        }
         p {
             visibility: hidden;
             position: absolute;
         }
 
         .contenedor {
+            display: flex;
             overflow-x: scroll;
             overflow-y: hidden;
-            width: 1100px;
+            width: 80vw;
             margin-bottom: 40px;
+            
 
-            .cartas {
+            .peliculas-aclamadas {
                 padding: 1px;
-                display:flex;
-                
-                .carta {
+                display: flex;
+                justify-content: flex-start;
+
+                .peli-aclamada {
                     margin: 10px;
-                    min-width: 200px;
+                    
                     border-radius: 15px;
                     display: flex;
                     justify-content: center;
@@ -304,7 +341,10 @@ main {
                         max-width: 200px;
                         margin: 10px 10px;
                         border-radius: 10px;
-                        box-shadow: 1px 1px 20px var(--color-superior);
+
+                        &:hover {
+                            box-shadow: 1px 1px 20px var(--color-superior);
+                        }
                     }
                 }
             }
@@ -313,6 +353,8 @@ main {
 }
 
 footer {
+
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -333,91 +375,5 @@ footer {
     right: 20px;
     bottom: 20px;
     font-size: 1.5em;
-    color: black !important;
-
 }
 
-/* Media Query */
-
-@media screen and (max-width:600px) {
-    li {
-        font-size: 3vw;
-    }
-
-    a {
-        font-size: 1em;
-    }
-
-    header {
-        flex-direction: column;
-        justify-content: center;
-        height: 5em;
-        width: 100%;
-
-        h1 {
-            font-size: 1.5em;
-        }
-
-        .contenedor {
-            justify-content: center;
-            flex-direction: column;
-
-            ul {
-                padding: 0;
-            }
-        }
-    }
-
-    main {
-        margin-top: 5em;
-
-        #presentacion {
-            height: calc(100vh - 5em);
-            display: flexbox;
-            flex-direction: column;
-            justify-content: center;
-
-            h2 {
-                font-size: 6vw;
-            }
-
-        }
-
-        #aclamadas {
-
-
-            .cartas {
-                width: auto;
-                display: flex;
-                flex-wrap: nowrap;
-                flex-direction: row;
-                overflow-inline: clip;
-            }
-        }
-    }
-
-    footer {
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: 7em;
-
-        ul {
-            flex-wrap: wrap;
-            flex-direction: column;
-
-            li {
-                padding: 3px 0;
-            }
-        }
-    }
-
-    .subir {
-
-        right: 10px;
-        bottom: 10px;
-
-        a {
-            font-size: 1em;
-        }
-    }
-}

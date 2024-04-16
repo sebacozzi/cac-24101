@@ -1,0 +1,119 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    height: 100%;
+    background-image: linear-gradient(to right,rgba(30,30,30,0.7),rgba(30,30,30,0.7)), url("../media/bg-register.jpg");
+    background-position: 0;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+     height: calc(100vh - (4em + 4em )); 
+    /* margin: 20px 0; */
+    form {
+
+        
+        width: 35%;
+        padding: 30px;
+       
+        background-color: rgb(51, 51, 51);
+        border-radius: 5px;
+        box-shadow: 12px 12px 15px rgb(99, 99, 99);
+
+        .grupo-registro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 5px 0;
+
+            input,
+            select {
+                padding: 1px 15px;
+                border-radius: 25px;
+                outline: none;
+                font-size: 0.8em;
+                width: 80%;
+                /* background-color: brown; */
+                &[Value] {
+                    background-color: rgb(33, 33, 34);
+                }
+            }
+
+            
+
+            .error {
+                visibility: hidden;
+                font-size: 0.5em;
+                color: red;
+                font-weight: 700;
+            }
+
+            button {
+                width: 70%;
+            }
+        }
+
+        .terminos {
+            flex-direction: row;
+
+            input {
+                width: auto;
+                margin-left: 10%;
+                margin-right: 5px;
+            }
+
+            ;
+        }
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (max-width:900px) {
+    .formulario {
+    
+        height: calc(92vh - (5em + 7em ) );
+       @media (max-height:550px) {
+        height: calc(92vh - (4em + 4em ) );
+        align-items: flex-start;
+        overflow-y: auto;       
+       }
+     
+        form {
+            width: 80%;
+            padding: 10px;
+            @media (max-height:550px) {
+                 margin-top: 1em;
+                 margin-bottom: 3em;
+            }
+            .grupo-registro{
+                input,select{
+                    width: 90%;
+                }
+            }
+            .terminos {
+                flex-direction: row;
+    
+                input {
+                    width: auto;
+                    margin-left: 5%;
+                    margin-right: 5px;
+                }
+        }
+    }
+}
+}
