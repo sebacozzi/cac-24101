@@ -18,7 +18,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
@@ -26,7 +25,7 @@
 </head>
 
 <body>
-    <div id="inicio"></div>
+
     <div id="back">
         <span class="material-icons">arrow_back_ios_new</span>
     </div>
@@ -49,14 +48,6 @@
     <main class="formulario">
         <form action="" method="get">
             <div class="grupo-registro">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre...">
-                <div class="error">Nombre error</div>
-            </div>
-            <div class="grupo-registro">
-                <input type="text" name="apellido" id="apellido" placeholder="Apellido...">
-                <div class="error">Apellido error</div>
-            </div>
-            <div class="grupo-registro">
                 <input type="email" name="email" id="email" placeholder="Correo Electronico...">
                 <div class="error">Email error</div>
             </div>
@@ -64,34 +55,13 @@
                 <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña...">
                 <div class="error">Contraseña error</div>
             </div>
-            <div class="grupo-registro">
-                <input type="date" name="fechanacimiento" id="fechanacimiento" placeholder="Fecha de Nacimiento...">
-                <div class="error">Fecha de nacimiento error</div>
-            </div>
-            <div class="grupo-registro">
-                <select name="pais" id="pais">
-                    <option value="">País</option>
-                    <option value="AR">Argentina</option>
-                    <option value="BO">Bolivia</option>
-                    <option value="BR">Brasil</option>
-                    <option value="CH">Chile</option>
-                    <option value="CO">Colombia</option>
-                    <option value="EC">Ecuador</option>
-                    <option value="PY">Paraguay</option>
-                    <option value="PE">Perú</option>
-                    <option value="UY">Uruguay</option>
-                    <option value="VE">Venezuela</option>
-                </select>
-                <div class="error">Contraseña error</div>
-            </div>
             <div class="grupo-registro terminos">
-                <input type="checkbox" name="aceptaTerminos" id="aceptaTerminos"
-                    placeholder="Terminos y condiciones...">
-                <label for="aceptaTerminos">Terminos y condiciones.</label>
+                <input type="checkbox" name="recordar" id="recordar" placeholder="Recordar usuario y contraseña.">
+                <label for="recordar">Recordar usuario y contraseña.</label>
                 <div class="error">Contraseña error</div>
             </div>
             <div class="grupo-registro ">
-                <button>Registrarse</button>
+                <button>Iniciar Sesión</button>
                 <div class="error">Contraseña error</div>
             </div>
 
@@ -113,7 +83,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
     <script src="./js/index.js"></script>
 </body>
 
