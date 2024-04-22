@@ -174,7 +174,7 @@ main {
     }
 
     #presentacion {
-        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/Ejercicios/html/media/banner-bg.jpg");
+        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../media/banner-bg.jpg");
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: cover;
