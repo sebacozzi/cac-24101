@@ -7,6 +7,22 @@
     --altura-header: 4em;
 }
 
+@keyframes ocultar {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+@keyframes sombra {
+    0% {}
+
+}
+
 /* html {
     display: block;
     margin: 0;
@@ -165,29 +181,6 @@ header {
     }
 }  */
 
-.enconstruccion {
-    background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../media/banner-bg.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: calc(100vh - 8em);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-
-    h2 {
-        opacity: 0;
-        scale: 0.5;
-    }
-
-    .animado {
-        opacity: 1;
-        scale: 5;
-        transition: all 0.5s linear;
-    }
-}
 
 main {
 
@@ -195,6 +188,29 @@ main {
         width: 75%;
         border: 1.7px solid brown;
         margin: 20px auto;
+    }
+
+    .enconstruccion {
+        background-image: linear-gradient(to right top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../media/banner-bg.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: calc(100vh - 8em);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+
+        .encon {
+            font-size: 2em;
+        }
+
+        .animado {
+            font-size: 3em;
+            animation: ocultar 1s ease calc(0.33s * var(--t)) infinite;
+        }
+
     }
 
     #presentacion {
