@@ -77,15 +77,25 @@ const lista = [];
 
 function agregaALista() {
     const valor = parseInt(valorPorID('numero'));
+    elemento('numero').focus();
+    elemento('numero').value = "";
+    if (isNaN(lista.indexOf(valor, 0))) {
+        alert(`\"El número ${valor} ya existe!`);
+        return;
+    }
     if (isNaN(valor)) {
         alert('"' + valorPorID('numero') + '" no es número!');
         return;
     }
 
     lista.push(valor);
+    mostrarLista(lista);
+    localStorage.setItem('lista', lista);
+    elemento('numero').focus();
+}
 
-    elemento('lista1').innerText = lista.toString();
-    elemento('numero').value = "";
+function mostrarLista(lista) {
+    elemento('lista1').innerText = lista;
 }
 
 asignarClick('buscaMayor', buscaMayor);
@@ -111,3 +121,43 @@ function buscaMayor() {
 }
 
 asignarClick('buscaMenor', buscaMenor);
+
+function buscaMenor() {
+    let mayor = undefined;
+
+    const resu = elemento('resultado4');
+
+    if (lista.length) {
+        if (lista.length == 1) {
+            resu.innerText = 'La lista tiene 1 solo dato y es ' + lista[0];
+        } else {
+            mayor = lista[0];
+            lista.forEach((v) => { if (v < mayor) { mayor = v } });
+            resu.innerText = 'El menor de la lista es ' + mayor;
+        }
+    } else {
+        alert('La lista está vacia');
+    }
+}
+
+asignarClick("botonLimpiar", limpiar);
+
+function limpiar() {
+
+    lista.splice(0, lista.length);
+
+    elemento('lista1').innerText = lista.toString();
+
+    localStorage.removeItem('lista');
+
+}
+
+function iniciar() {
+    lista.push(localStorage.getItem('lista'));
+    console.log(lista);
+    if (lista) {
+        mostrarLista(lista);
+    }
+}
+iniciar();
+
