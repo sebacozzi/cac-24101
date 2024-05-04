@@ -9,6 +9,9 @@
         .botonera-container {
             display: flex;
             flex-direction: column;
+            button:nth-last-child(1){
+                margin-top: 1.5em;
+            }
         }
     </style>
 </head>
@@ -20,17 +23,21 @@
     <main>
         <section>
             <h3>Elija su Turno</h3>
-            <label for="">DNI</label>
+            <label for="dni">DNI</label>
             <input type="text" name="" id="dni">
             <div class="botonera-container">
-                <button onclick="sacarTurno('os')">
+                <button type="button" onclick="sacarTurno('os')">
                     Obra Social
                 </button>
-                <button onclick="sacarTurno('pre')">
+                <button type="button" onclick="sacarTurno('pre')">
                     Prepaga
                 </button>
-                <button onclick="sacarTurno('par')">
+                <button type="button" onclick="sacarTurno('par')">
                     Particular
+                </button>
+                
+                <button type="button" onclick="limpiarTurnos()">
+                    Limpiar turnero
                 </button>
             </div>
         </section>
