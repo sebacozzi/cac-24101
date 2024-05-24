@@ -447,6 +447,7 @@ main {
                     z-index: 2;
                     opacity: 0;
                     margin: 0;
+                    padding: 0 40px;
                     font-size: 1.7em;
                     font-weight: 700;
                     transition: all 0.8s;

@@ -178,8 +178,9 @@ async function cargarPagina(){
         defaultAclamadas.forEach(peli => {
             aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'aclamada')
         })
-
-        document.querySelector('#usuario-logueado').innerHTML = '¡Inicia sesión!'
+        botonAnterior.disabled = true;
+        botonSiguiente.disabled =true;
+        document.querySelector('#n-pagina').innerHTML ='';
         return;
     }
 
@@ -192,7 +193,7 @@ async function cargarPagina(){
 
     await apiAclamadas();
 
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 15; index++) {
         aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta('peli-aclamada',urlImagen + listaAclamadas.results[index].poster_path,'',listaAclamadas.results[index].id,'aclamada');
         
     }
@@ -221,6 +222,8 @@ function enableBotones() {
     botonSiguiente.disabled = listaTendencias.page === listaTendencias.total_pages;
     document.querySelector('#n-pagina').innerHTML = listaTendencias.page + ' de ' + listaTendencias.total_pages;
     sessionStorage.setItem('paginaActiva',paginaActiva);
+    
+    window.scroll(0,document.getElementById('buscar').offsetTop);
 }
 
 botonSiguiente.addEventListener('click', paginaSiguiente);
