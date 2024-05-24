@@ -20,8 +20,43 @@
 </head>
 
 <body>
-    <div id="inicio"></div>
 
+    <div id="formulario-login" class="ocultar">
+        <div id="sombra"
+            style="width: 100%; height: 100%;top: 0;left: 0; z-index: 50000;background-color: rgba(0, 0, 0, 0.753); position: absolute;cursor:pointer">
+        </div>
+
+        <div class="login-modal" id="login">
+
+            <div class="login">
+                <a id="cerrar">X</a>
+                <div class="form">
+
+                    <div class="grupo-registro">
+                        <input type="email" name="email" id="email" placeholder="Correo Electronico...">
+                        <div class="error" style="visibility: hidden;" id="error-email">Email Error</div>
+                    </div>
+                    <div class="grupo-registro">
+
+                        <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña...">
+                        <div class="error" style="visibility: hidden;" id="error-contrasenia">Contraseña error</div>
+                    </div>
+                    <div class="grupo-registro terminos">
+                        <input type="checkbox" name="recordar" id="recordar"
+                            placeholder="Recordar usuario y contraseña.">
+                        <label for="recordar">Recordar usuario y contraseña.</label>
+
+                    </div>
+                    <div class="grupo-registro ">
+                        <button id="iniciar-sesion">Iniciar Sesión</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <header>
         <div class="contenedor-h">
@@ -29,51 +64,21 @@
 
                 <h1><i class="bi bi-film"></i> CAC-Movies</h1>
             </div>
+            <div>
+
+                <p id="usuario-logueado"></p>
+            </div>
             <div class="acciones">
                 <ul>
                     <li><a href="#tendencias">Tendencias</a></li>
                     <li><a href="./registro.html">Registrarse</a></li>
-                    <li><a  id="boton-login"style="cursor: pointer;">Iniciar Sesión</a></li>
+                    <li><a id="boton-login" style="cursor: pointer;">Iniciar Sesión</a></li>
                     <!-- <li><a href="./login.html">Iniciar Sesión</a></li> -->
                 </ul>
             </div>
         </div>
     </header>
 
-    <div id="fondo" class="ocultar">
-        <!-- <div id="sombra"
-            style="width: 100%; height: 100%;top: 0;left: 0; z-index: 50000;background-color: rgba(0, 0, 0, 0.753); position: absolute;cursor:pointer"
-            onclick="cerrarLogin(this)">
-        </div> -->
-
-        <div class="login-modal" id="login">
-
-            <div class="login">
-                <a id="cerrar" href="#ocultar">X</a>
-                <form>
-                    <div class="grupo-registro">
-                        <input type="email" name="email" id="email" placeholder="Correo Electronico...">
-                        <div class="error">Email error</div>
-                    </div>
-                    <div class="grupo-registro">
-                        <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña...">
-                        <div class="error">Contraseña error</div>
-                    </div>
-                    <div class="grupo-registro terminos">
-                        <input type="checkbox" name="recordar" id="recordar"
-                            placeholder="Recordar usuario y contraseña.">
-                        <label for="recordar">Recordar usuario y contraseña.</label>
-                        <div class="error">Contraseña error</div>
-                    </div>
-                    <div class="grupo-registro ">
-                        <button>Iniciar Sesión</button>
-                        <div class="error">Contraseña error</div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-    </div>
 
     <main>
         <section id="presentacion">
@@ -139,7 +144,7 @@
     </footer>
 
     <div class="subir">
-        <a href="" onclick="scroll(0,150)"><i class="bi bi-arrow-up-circle-fill"></i></a>
+        <a onclick="window.scroll(0,0)" style="cursor: pointer;"><i class="bi bi-arrow-up-circle-fill"></i></a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

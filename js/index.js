@@ -1,11 +1,11 @@
-
+const user = JSON.parse(sessionStorage.getItem('user')) || {};
 function loguearse() {
     alert('Debe loguearse para ver los detalles de la pelicula!!')
 };
 
 function insertaCarta(clase, imagen, titulo, id, categoria) {
-    
-    return `<div class=${clase} id=${categoria+id} onclick=detalle(${id})>
+
+    return `<div class=${clase} id=${categoria + id} onclick=detalle(${id})>
     <img src='${imagen}' alt="">
     <p>${titulo}</p>
     </div>`
@@ -137,13 +137,16 @@ const defaultTendencias =
     ]
 
 function logueado() {
-    return sessionStorage.getItem.user;
+
+    return user.email;
 }
 
-function detalle (id){
-    if(!logueado()){
+function detalle(id) {
+    if (!logueado()) {
         loguearse();
         return;
+    } else {
+
     }
 }
 
@@ -155,21 +158,21 @@ window.onload = () => {
     if (!logueado()) {
 
         defaultTendencias.forEach(peli => {
-            tendencias.innerHTML = tendencias.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id,'tendencia')
+            tendencias.innerHTML = tendencias.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'tendencia')
         })
 
         defaultAclamadas.forEach(peli => {
-            aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id,'aclamada')
+            aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'aclamada')
         })
 
 
     }
 }
 
-function iniciarLogin(){
-    console.log('mostrar');
-    document.querySelector('#fondo').classList.remove('ocultar');
-    document.querySelector('#fondo').classList.add('mostrar');
+function iniciarLogin() {
+
+    document.querySelector("#formulario-login").classList = ['mostrar'];
+    document.querySelector('body').style.overflow = 'hidden';
 }
 
-document.querySelector('#boton-login').addEventListener('click',iniciarLogin);
+document.querySelector('#boton-login').addEventListener('click', iniciarLogin);
