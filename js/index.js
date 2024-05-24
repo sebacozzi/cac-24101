@@ -1,4 +1,19 @@
 const user = JSON.parse(sessionStorage.getItem('user')) || {};
+let paginaActiva = parseInt(sessionStorage.getItem('paginaActiva'))|| 1;
+const botonSiguiente = document.querySelector('#siguiente');
+const botonAnterior = document.querySelector('#anterior');
+
+const tendencias = document.querySelector('#cartas-tendencias');
+const aclamadas = document.querySelector('#peli-aclamadas');
+
+const options = {
+    method: 'GET',
+    headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YTJhNWYwMWYyNDE5NjU4MzIyNjgyNTFkMmVkMzUxNiIsInN1YiI6IjY2NGQ2NDEyNzdlZDQxMTZiZjEzZWMxZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wHAgiz8Ui-_jhnXCnY11VgdlT6M3IUARpmX3Pb0_KTM'
+    }
+};
+
 function loguearse() {
     alert('Debe loguearse para ver los detalles de la pelicula!!')
 };
@@ -146,15 +161,14 @@ function detalle(id) {
         loguearse();
         return;
     } else {
-
+        user = JSON.parse(sessionStorage.getItem('user'));
     }
 }
 
-window.onload = () => {
-    const tendencias = document.querySelector('#cartas-tendencias');
-    const aclamadas = document.querySelector('#peli-aclamadas');
+async function cargarPagina(){
     aclamadas.innerHTML = '';
     tendencias.innerHTML = '';
+        mostrarUsuario();
     if (!logueado()) {
 
         defaultTendencias.forEach(peli => {
@@ -165,14 +179,80 @@ window.onload = () => {
             aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'aclamada')
         })
 
-
+        document.querySelector('#usuario-logueado').innerHTML = '¡Inicia sesión!'
+        return;
     }
+
+    
+    await apiTendencias(paginaActiva);
+    
+    listaTendencias.results.forEach(peli => {
+        tendencias.innerHTML = tendencias.innerHTML + insertaCarta('carta', urlImagen + peli.poster_path, peli.title, peli.id, 'tendencia')
+    });
+
+    await apiAclamadas();
+
+    for (let index = 0; index < 10; index++) {
+        aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta('peli-aclamada',urlImagen + listaAclamadas.results[index].poster_path,'',listaAclamadas.results[index].id,'aclamada');
+        
+    }
+    
+
+    enableBotones();
 }
 
-function iniciarLogin() {
+window.onload = cargarPagina;
 
-    document.querySelector("#formulario-login").classList = ['mostrar'];
-    document.querySelector('body').style.overflow = 'hidden';
+let listaTendencias;
+let listaAclamadas;
+const urlImagen = 'https://image.tmdb.org/t/p/w500/';
+
+async function apiTendencias(pagina) {
+
+    await fetch(`https://api.themoviedb.org/3/movie/popular?language=es&page=${pagina}`, options)
+        .then(response => response.json())
+        .then(response => listaTendencias = response)
+        .catch(err => console.error(err));
+
 }
 
-document.querySelector('#boton-login').addEventListener('click', iniciarLogin);
+function enableBotones() {
+    botonAnterior.disabled = listaTendencias.page === 1;
+    botonSiguiente.disabled = listaTendencias.page === listaTendencias.total_pages;
+    document.querySelector('#n-pagina').innerHTML = listaTendencias.page + ' de ' + listaTendencias.total_pages;
+    sessionStorage.setItem('paginaActiva',paginaActiva);
+}
+
+botonSiguiente.addEventListener('click', paginaSiguiente);
+botonAnterior.addEventListener('click', paginaAnterior);
+
+async function paginaSiguiente() {
+    paginaActiva = paginaActiva + 1 ;
+    tendencias.innerHTML='';
+    await apiTendencias(paginaActiva);
+
+    listaTendencias.results.forEach(peli => {
+        tendencias.innerHTML = tendencias.innerHTML + insertaCarta('carta', urlImagen + peli.poster_path, peli.title, peli.id, 'tendencia')
+    });
+
+    enableBotones();
+}
+
+async function paginaAnterior() {
+    paginaActiva = paginaActiva - 1;
+    tendencias.innerHTML='';
+    await apiTendencias(paginaActiva);
+    listaTendencias.results.forEach(peli => {
+        tendencias.innerHTML = tendencias.innerHTML + insertaCarta('carta', urlImagen + peli.poster_path, peli.title, peli.id, 'tendencia')
+    });
+    
+    enableBotones()
+}
+
+
+async function apiAclamadas(){
+    await fetch('https://api.themoviedb.org/3/movie/top_rated?language=es&page=1', options)
+    .then(response => response.json())
+    .then(response => listaAclamadas=response)
+    .catch(err => console.error(err));
+}

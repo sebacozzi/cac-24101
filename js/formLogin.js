@@ -1,22 +1,79 @@
-document.querySelector('#sombra').addEventListener('click', cerrarLogin);
-document.querySelector('#cerrar').addEventListener('click', cerrarLogin);
+const formulario=
+`<div id="formulario-login" class="mostrar">
+        <div id="sombra"
+            onclick="cerrarLogin()"
+            style="width: 100%; height: 100%;top: 0;left: 0; z-index: 50000;background-color: rgba(0, 0, 0, 0.753); position: absolute;cursor:pointer">
+        </div>
 
-const usuario = document.querySelector('#email');
-const pass = document.querySelector('#contrasenia');
+        <div class="login-modal" id="login">
+
+            <div class="login">
+                <a id="cerrar" onclick="cerrarLogin()" style="cursor: pointer;">X</a>
+                <div class="form">
+
+                    <div class="grupo-registro">
+                        <input type="email" name="email" id="email" placeholder="Correo Electronico..."
+                        onchange="ocultaError('#error-email')"
+                        onkeydouwn="ocultaError('#error-email')">
+                        <div class="error" style="visibility: hidden;" id="error-email">Email Error</div>
+                    </div>
+                    <div class="grupo-registro">
+
+                        <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña..."
+                        onchange="ocultaError('#error-contrasenia')"
+                        onkeydouwn="ocultaError('#error-contrasenia')">
+                        <div class="error" style="visibility: hidden;" id="error-contrasenia">Contraseña error</div>
+                    </div>
+                    <div class="grupo-registro terminos">
+                        <input type="checkbox" name="recordar" id="recordar"
+                            placeholder="Recordar usuario y contraseña.">
+                        <label for="recordar">Recordar usuario y contraseña.</label>
+
+                    </div>
+                    <div class="grupo-registro ">
+                        <button id="iniciar-sesion"
+                        onclick="iniciarSesion()">Iniciar Sesión</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>`;
+
+const botonLogin=document.querySelector('#boton-login');
+
+botonLogin.addEventListener('click', iniciarLogin);
+let usuario;
+let pass;
 const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+function iniciarLogin() {
+    if (logueado()){
+        sessionStorage.removeItem('user');
+        sessionStorage.removeItem('paginaActiva');
+        user.email ='';
+        cargarPagina();
+        botonLogin.innerHTML='Iniciar Sesión';
+        return;
+    }
+    document.querySelector("#flogin").innerHTML= formulario;
+ 
+     usuario = document.querySelector('#email');
+     pass = document.querySelector('#contrasenia');
+
+    document.querySelector('body').style.overflow = 'hidden';
+    
+}
+
 
 function cerrarLogin() {
 
-    document.querySelector("#formulario-login").classList = ['ocultar'];
+    document.querySelector("#flogin").innerHTML = '';
     document.querySelector('body').style.overflow = 'auto';
 
 }
-
-document.querySelector('#iniciar-sesion').addEventListener('click', iniciarSesion);
-
-
-usuario.addEventListener('keydown', () => { ocultaError('#error-email') })
-usuario.addEventListener('change', () => { ocultaError('#error-email') })
 
 function ocultaError(selector) {
     document.querySelector(selector).style.visibility = 'hidden'
@@ -79,7 +136,7 @@ function iniciarSesion() {
     guardaSesion(usuario.value, pass.value);
 
     cerrarLogin();
-
+    cargarPagina();
 }
 
 function guardaSesion(email, password) {
@@ -89,8 +146,13 @@ function guardaSesion(email, password) {
     user.nombreMostrar = email.split('@')[0];
 
     console.log(user);
+    mostrarUsuario();
+
+
+    sessionStorage.setItem('user', JSON.stringify(user));
+}
+
+function mostrarUsuario(){
     document.querySelector('#usuario-logueado').innerHTML = `BIENVENIDO ${user.nombreMostrar}!!`;
-
-
-    sessionStorage.setItem(user, JSON.stringify(user));
+    botonLogin.innerHTML='Cerrar Sesión'
 }

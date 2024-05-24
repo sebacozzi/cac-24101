@@ -21,43 +21,10 @@
 
 <body>
 
-    <div id="formulario-login" class="ocultar">
-        <div id="sombra"
-            style="width: 100%; height: 100%;top: 0;left: 0; z-index: 50000;background-color: rgba(0, 0, 0, 0.753); position: absolute;cursor:pointer">
-        </div>
 
-        <div class="login-modal" id="login">
 
-            <div class="login">
-                <a id="cerrar">X</a>
-                <div class="form">
-
-                    <div class="grupo-registro">
-                        <input type="email" name="email" id="email" placeholder="Correo Electronico...">
-                        <div class="error" style="visibility: hidden;" id="error-email">Email Error</div>
-                    </div>
-                    <div class="grupo-registro">
-
-                        <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña...">
-                        <div class="error" style="visibility: hidden;" id="error-contrasenia">Contraseña error</div>
-                    </div>
-                    <div class="grupo-registro terminos">
-                        <input type="checkbox" name="recordar" id="recordar"
-                            placeholder="Recordar usuario y contraseña.">
-                        <label for="recordar">Recordar usuario y contraseña.</label>
-
-                    </div>
-                    <div class="grupo-registro ">
-                        <button id="iniciar-sesion">Iniciar Sesión</button>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+    <div id="flogin"></div>
     </div>
-
     <header>
         <div class="contenedor-h">
             <div class="logo">
@@ -109,8 +76,9 @@
                 </div>
             </div>
             <form class="navega">
-                <button type="button">Anterior</button>
-                <button type="button">Siguiente</button>
+                <button type="button" id="anterior">Anterior</button>
+                <span id="n-pagina"></span>
+                <button type="button" id="siguiente">Siguiente</button>
             </form>
         </section>
 
