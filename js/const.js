@@ -1,3 +1,10 @@
+const noLogueado =`            <section id="presentacion">
+<h2>Películas y series ilimitadas<br>en un solo lugar</h2>
+<p>Disfrutas donde quieras.<br> Cancelas en cualquier momento.</p>
+<a href="./registro.html">Registrate
+</a>
+</section>`;
+
 const defaultAclamadas = [
     {
         id: 1,
@@ -124,7 +131,7 @@ const defaultTendencias =
         }
     ]
 
-const formulario =
+ const formulario =
     `<div id="formulario-login" class="mostrar">
         <div id="sombra"
             onclick="cerrarLogin()"

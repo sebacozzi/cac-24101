@@ -111,6 +111,6 @@ function guardaSesion(email, password) {
 }
 
 function mostrarUsuario(){
-    document.querySelector('#usuario-logueado').innerHTML = logueado()? `BIENVENIDO ${user.nombreMostrar}!!`:'¡Inicia sesión!';
+    document.querySelector('#usuario-logueado').innerHTML = logueado()? `<b>Hola</b> ${user.nombreMostrar}!!`:'¡Inicia sesión!';
     botonLogin.innerHTML=logueado()?'Cerrar Sesión':'Iniciar Sesión';
 }

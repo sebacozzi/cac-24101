@@ -1,5 +1,6 @@
+
 const user = JSON.parse(sessionStorage.getItem('user')) || {};
-let paginaActiva = parseInt(sessionStorage.getItem('paginaActiva'))|| 1;
+let paginaActiva = parseInt(sessionStorage.getItem('paginaActiva')) || 1;
 const botonSiguiente = document.querySelector('#siguiente');
 const botonAnterior = document.querySelector('#anterior');
 
@@ -35,14 +36,14 @@ function detalle(id) {
         loguearse();
         return;
     } else {
-        user = JSON.parse(sessionStorage.getItem('user'));
+        //user = JSON.parse(sessionStorage.getItem('user'));
     }
 }
 
-async function cargarPagina(){
+async function cargarPagina() {
     aclamadas.innerHTML = '';
     tendencias.innerHTML = '';
-        mostrarUsuario();
+    mostrarUsuario();
     if (!logueado()) {
 
         defaultTendencias.forEach(peli => {
@@ -53,22 +54,23 @@ async function cargarPagina(){
             aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'aclamada')
         })
         botonAnterior.disabled = true;
-        botonSiguiente.disabled =true;
-        document.querySelector('#n-pagina').innerHTML ='';
+        botonSiguiente.disabled = true;
+        document.querySelector('#n-pagina').innerHTML = '';
+        document.querySelector('#no-logueado').innerHTML= noLogueado;
         return;
     }
+    document.querySelector('#no-logueado').innerHTML='';
 
-    
     await apiTendencias(paginaActiva);
-    
+
     listaTendencias.results.forEach(peli => {
         tendencias.innerHTML = tendencias.innerHTML + insertaCarta('carta', urlImagen + peli.poster_path, peli.title, peli.id, 'tendencia')
     });
 
     await apiAclamadas();
 
-    
-    
+
+
 
     enableBotones();
 }
@@ -85,19 +87,19 @@ function enableBotones() {
     botonAnterior.disabled = listaTendencias.page === 1;
     botonSiguiente.disabled = listaTendencias.page === listaTendencias.total_pages;
     document.querySelector('#n-pagina').innerHTML = listaTendencias.page + ' de ' + listaTendencias.total_pages;
-    sessionStorage.setItem('paginaActiva',paginaActiva);
+    sessionStorage.setItem('paginaActiva', paginaActiva);
 }
 
 botonSiguiente.addEventListener('click', paginaSiguiente);
 botonAnterior.addEventListener('click', paginaAnterior);
 
 async function paginaSiguiente() {
-    paginaActiva = paginaActiva + 1 ;
-    
+    paginaActiva = paginaActiva + 1;
+
     await apiTendencias(paginaActiva);
 
     enableBotones();
-    window.scroll(0,document.getElementById('buscar').offsetTop);
+    window.scroll(0, document.getElementById('buscar').offsetTop);
 }
 
 async function paginaAnterior() {
@@ -107,7 +109,7 @@ async function paginaAnterior() {
 
     enableBotones()
 
-    window.scroll(0,document.getElementById('buscar').offsetTop);
+    window.scroll(0, document.getElementById('buscar').offsetTop);
 }
 
 

@@ -33,7 +33,7 @@
             </div>
             <div>
 
-                <p id="usuario-logueado"></p>
+                <p id="usuario-logueado" style="position: fixed;right: 0;top: 4em;border-radius: 0 0 0 15px ; background-color: brown; padding: 5px 25px;"></p>
             </div>
             <div class="acciones">
                 <ul>
@@ -48,13 +48,14 @@
 
 
     <main>
-        <section id="presentacion">
-            <h2>Películas y series ilimitadas<br>en un solo lugar</h2>
-            <p>Disfrutas donde quieras.<br> Cancelas en cualquier momento.</p>
-            <a href="./registro.html">Registrate
-            </a>
-        </section>
-
+        <div id="no-logueado">
+            <section id="presentacion">
+                <h2>Películas y series ilimitadas<br>en un solo lugar</h2>
+                <p>Disfrutas donde quieras.<br> Cancelas en cualquier momento.</p>
+                <a href="./registro.html">Registrate
+                </a>
+                </section>
+        </div>
         <section id="buscar">
             <h3>¿Qué estas buscando para ver?</h3>
             <form action="" method="post" class="busqueda">
@@ -123,6 +124,7 @@
     <script src="./js/formLogin.js"></script>
     <script src="./js/apis.js"></script>
     <script src="./js/const.js"></script>
+    <!--    <script src="./js/const.js"></script> -->
 </body>
 
 </html>
