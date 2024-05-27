@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/monokai-sublime.min.css'>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="datos">
+        <h1>generar sql</h1>
+        <div>
+            <label for="nombre">Nombre de la base de datos</label>
+            <input type="text" id="nDB" value="PELICULAS">
+        </div>
+        <div>
+            <label for="count-peliculas">cantidad de peliculas</label>
+            <input type="number" id="count-peliculas" value="15">
+        </div>
+        <div>
+            <label for="count-directores">cantidad de directores</label>
+            <input type="number" id="count-directores" value="15">
+        </div>
+        <div>
+            <label for="count-usuarios">cantidad de usuarios</label>
+            <input type="number" id="count-usuarios" value="15">
+        </div>
+        <button id="generar">Generar SQL</button>
+    </section>
+
+
+    <hr>
+    <section id="creadb">
+    <pre>
+        <code id="create-db">
+CREATE DATABASE <span id="nombreDB">PELICULAS</span>;</code>
+        <code>
+USE <span id="nombreDB">PELICULAS</span>;</code>
+        </pre>
+    </section>
+    <section id="tabla-movies">
+        <pre>
+            <code >
+CREATE TABLE movies (
+    id_movie INT NOT NULL AUTOINCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    descripcion VARCHAR(150),
+     genero VARCHAR(25) NOT NULL,
+    calificacion FLOAT NOT NULL DEFAULT 1,
+    anio INT NOT NULL DEFAULT 2024,
+    estrellas INT NOT NULL DEFAULT 1,
+    irector INT NOT NULL);                 
+            </code>
+    </pre>
+    </section>
+    <section id="tabla-directores">
+    <pre>
+        <code>
+CREATE TABLE directores(
+    id_director INT NOT NULL AUTOINCREMENT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL,
+    apellido VARCHAR(25) NOT NULL,
+    edad INT NOT NULL,
+    nacionalidad VARCHAR(25)
+);
+</code>
+</pre>
+<pre>
+    <code>
+CREATE TABLE usuarios(
+    id_usuario INT NOT NULL AUTOINCREMENT PRIMARY KEY,
+    nombre VARCHAR(25) NOT NULL,
+    apellido VARCHAR(25) NOT NULL,
+    email VARCHAR(60) NOT NULL UNIQUE,
+    fecha_nac DATE NOT NULL,
+    pais VARCHAR(25) NOT NULL
+);
+
+    </code>
+</pre>    
+   
+    </section>
+    <script src="./js/generasql.js"></script>
+</body>
+
+</html>

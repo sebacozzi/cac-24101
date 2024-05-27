@@ -28,7 +28,7 @@ function insertaCarta(clase, imagen, titulo, id, categoria) {
 }
 
 function logueado() {
-    return user.email != '';
+    return user.email;
 }
 
 function detalle(id) {
