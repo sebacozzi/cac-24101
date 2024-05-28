@@ -10,6 +10,19 @@
 </head>
 
 <body>
+    <style>
+        a,button {
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            border: 2px solid rgb(212, 176, 176);
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: rgba(112, 189, 131, 0.397);
+        }
+
+    </style>
     <section id="datos">
         <h1>generar sql</h1>
         <div>
@@ -36,9 +49,9 @@
     <section id="creadb">
         <pre>
         <code id="create-db">
-CREATE DATABASE <span id="nombreDB">PELICULAS</span>;</code>
+CREATE DATABASE PELICULAS;
         
-USE <span id="nombreDB">PELICULAS</span>;</code>
+USE PELICULAS;
         </code>        
 </pre>
     </section>
@@ -80,15 +93,14 @@ directotires(id_director);
         <hr>
         <h2>/*Inserción de Datos:*/</h2>
         <pre>
-    <code>
-<span id="insert_directores"></span>
-<span id="insert_movies"></span>
-<span id="insert_usuarios"></span>
-    </code>
+<code id="insert_directores" descripcion="Insert para la Tabla directores"></code>
+<code id="insert_movies" descripcion="Insert para la Tabla movies"></code>
+<code id="insert_usuarios" descripcion="Insert para la Tabla usuarios"></code>
+            
 </pre>
 
     </section>
-
+    <a id="descargar">Descargar</a>
     <script src="./js/generasql.js"></script>
 </body>
 
