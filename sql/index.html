@@ -34,12 +34,13 @@
 
     <hr>
     <section id="creadb">
-    <pre>
+        <pre>
         <code id="create-db">
 CREATE DATABASE <span id="nombreDB">PELICULAS</span>;</code>
-        <code>
+        
 USE <span id="nombreDB">PELICULAS</span>;</code>
-        </pre>
+        </code>        
+</pre>
     </section>
     <section id="tabla-movies">
         <pre>
@@ -52,13 +53,8 @@ CREATE TABLE movies (
     calificacion FLOAT NOT NULL DEFAULT 1,
     anio INT NOT NULL DEFAULT 2024,
     estrellas INT NOT NULL DEFAULT 1,
-    irector INT NOT NULL);                 
-            </code>
-    </pre>
-    </section>
-    <section id="tabla-directores">
-    <pre>
-        <code>
+    director INT NOT NULL);                 
+ 
 CREATE TABLE directores(
     id_director INT NOT NULL AUTOINCREMENT PRIMARY KEY,
     nombre VARCHAR(25) NOT NULL,
@@ -66,10 +62,7 @@ CREATE TABLE directores(
     edad INT NOT NULL,
     nacionalidad VARCHAR(25)
 );
-</code>
-</pre>
-<pre>
-    <code>
+
 CREATE TABLE usuarios(
     id_usuario INT NOT NULL AUTOINCREMENT PRIMARY KEY,
     nombre VARCHAR(25) NOT NULL,
@@ -79,10 +72,23 @@ CREATE TABLE usuarios(
     pais VARCHAR(25) NOT NULL
 );
 
+ALTER TABLE movies ADD CONSTRAINT fk_novies_director_directores_id_director FOREIGN KEY (director) REFERENCES
+directotires(id_director);
+
     </code>
-</pre>    
-   
+</pre>
+        <hr>
+        <h2>/*Inserción de Datos:*/</h2>
+        <pre>
+    <code>
+<span id="insert_directores"></span>
+<span id="insert_movies"></span>
+<span id="insert_usuarios"></span>
+    </code>
+</pre>
+
     </section>
+
     <script src="./js/generasql.js"></script>
 </body>
 
