@@ -31,7 +31,7 @@
         </div>
         <div>
             <label for="count-peliculas">cantidad de peliculas</label>
-            <input type="number" id="count-peliculas" value="15">
+            <input type="number" id="count-peliculas" value="2">
         </div>
         <div>
             <label for="count-directores">cantidad de directores</label>
@@ -61,7 +61,7 @@ USE PELICULAS;
 CREATE TABLE movies (
     id_movie INT NOT NULL AUTOINCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(150),
+    descripcion VARCHAR(256),
      genero VARCHAR(25) NOT NULL,
     calificacion FLOAT NOT NULL DEFAULT 1,
     anio INT NOT NULL DEFAULT 2024,
