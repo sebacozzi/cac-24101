@@ -61,8 +61,8 @@ USE PELICULAS;
 CREATE TABLE movies (
     id_movie INT NOT NULL AUTOINCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    descripcion VARCHAR(256),
-     genero VARCHAR(25) NOT NULL,
+    descripcion VARCHAR(1000),
+    genero VARCHAR(25) NOT NULL,
     calificacion FLOAT NOT NULL DEFAULT 1,
     anio INT NOT NULL DEFAULT 2024,
     estrellas INT NOT NULL DEFAULT 1,
