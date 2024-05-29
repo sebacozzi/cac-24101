@@ -37,6 +37,9 @@ function descargarSQL() {
 function randomPais() {
     return paises[parseInt(Math.random() * paises.length - 1)]
 }
+function pelicula(nombre, descripcion, genero, calificacion, anio, estrellas, id_director) {
+    return `("${nombre}", "${descripcion}", "${genero}", "${calificacion}", "${anio}", "${estrellas}", "${id_director}")`;
+}
 
 function convertirFecha(fecha) {
 
@@ -59,50 +62,50 @@ async function generar(ev) {
 
     insertUsuarios.innerHTML = 'Generando Usuarios...';
 
-   /*  const usuarios = await generarDatosUsuarios(contUsuarios);
-
-    for (const usuario of usuarios.results) {
-        listaUsuarios.push(usuarioAString(usuario));
-    }
-
-    insertUsuarios.innerHTML = `INSERT INTO usuarios(nombre,apellido,email,fecha_nac,pais) VAULES (\n\t${listaUsuarios.join(', \n\t')});`;
- */
+    /*  const usuarios = await generarDatosUsuarios(contUsuarios);
+ 
+     for (const usuario of usuarios.results) {
+         listaUsuarios.push(usuarioAString(usuario));
+     }
+ 
+     insertUsuarios.innerHTML = `INSERT INTO usuarios(nombre,apellido,email,fecha_nac,pais) VAULES (\n\t${listaUsuarios.join(', \n\t')});`;
+  */
     let listaPeliculas = await generarListaPeliculas(contPelis);
-
-
-    console.log(listaPeliculas)
-    let peli = await detallePelicula(listaPeliculas.results[0].id);
-    console.log('PELI::: ',peli);
-    const director = await detalleDirector(peli.crew[0].id);
-    console.log(await detalleDirector(peli.crew[0].id))//listaDirectores.results[0].id));
-
+    console.log('listaPeliculas: ', listaPeliculas)
+    insertPeliculas.innerHTML = listaPeliculas.join(',\n');
+    /*   console.log(listaPeliculas)
+      let peli = await detallePelicula(listaPeliculas.results[0].id);
+      console.log('PELI::: ',peli);
+      const director = await detalleDirector(peli.crew[0].id);
+      console.log(await detalleDirector(peli.crew[0].id))//listaDirectores.results[0].id));
+   */
 }
 
 // apis
 
 async function generarListaPeliculas(count) {
-    let lista=[];
-    const url = `https://api.themoviedb.org/3/movie/popular?language=es`;
-    const repetir = Math.ceil(count / 20);
-    while (repetir ===0) {
-        repetir --;
-        
-        let result;
-        await fetch(url, options)
-        .then(response => response.json())
-        .then(response => result = response)
-        .catch(err => console.error(err));
-for (const peli of result.results) {
+    let lista = count;
 
-    }                
-           
-        }
-        count -=20;
+    const url = `'https://api.themoviedb.org/3/find/154?external_source=imdb_id&language=es`;
+
+    let result = [];
+    while (result.length <= lista) {
+        const id = parseInt(Math.random() * 25000 + 1);
+        await fetch(`https://api.themoviedb.org/3/movie/${id}?language=es`, options)
+            .then(response => response.json())
+            .then(response => {
+                if (response.status_code != 34) {
+
+                    result.push(pelicula(response.title, response.overview, response.genres[0].name, response.vote_average, response.release_date, parseInt(response.vote_average / 2), response.id));
+                    console.log('id ', id, ': ', response)
+                }
+
+            })
+            .catch(err => console.error('id: ', id, '  --  ', err));
+        if (count === 0) return result
     }
 
-     
-        
-    return lista;
+    return result;
 }
 
 async function detalleDirector(id) {
