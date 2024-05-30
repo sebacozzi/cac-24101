@@ -42,25 +42,25 @@ function convertirFecha(fecha) {
     return fecha.split('T')[0];
 }
 
-function enProceso(texto) {
+function enProceso(texto, realizados, de, msg) {
     const puntos = texto.split(' ').at(-1);
-    const msg = texto.replace(puntos, '');
+
     let nPuntos = '';
 
     if (puntos.length > 5) {
         nPuntos = '.'
     } else {
-        for (let i = 0; i < puntos.length + 1; i++) {
+        for (let i = 0; i < puntos.length; i++) {
             nPuntos += '.';
 
         }
     }
 
-    return msg + nPuntos + '\n';
+    return msg + `( ${realizados}/${de}) ` + nPuntos + '\n';
 }
 
 function pelicula(nombre, descripcion, genero, calificacion, anio, estrellas, id_director) {
-    return `("${nombre}", "${descripcion}", "${genero}", "${calificacion}", "${anio}", "${estrellas}", "${id_director}")`;
+    return `("${nombre}", "${descripcion.replace('\"', '\'')}", "${genero}", "${calificacion}", "${anio.split('-')[0]}", "${estrellas}", "${id_director}")`;
 }
 
 function usuarioAString(usuario) {
@@ -85,16 +85,16 @@ async function generar(ev) {
         listaUsuarios.push(usuarioAString(usuario));
     }
 
-    insertUsuarios.innerHTML = `INSERT INTO usuarios(nombre,apellido,email,fecha_nac,pais) VAULES (\n\t${listaUsuarios.join(', \n\t')});\n`;
+    insertUsuarios.innerHTML = `INSERT INTO usuarios(nombre,apellido,email,fecha_nac,pais) VALUES \n\t${listaUsuarios.join(', \n\t')};\n`;
     window.scroll(0, 1500);
     insertPeliculas.innerHTML = 'Generando Peliculas ....\n'
     let listaPeliculas = await generarListaPeliculas(contPelis, listaDirectores);
 
-    insertPeliculas.innerHTML = `INSERT INTO movies(nombre,descripcion,genero,calificacion,anio,estrellas,director) VALUES (\n\t${listaPeliculas.join(',\n\t')});\n`;
+    insertPeliculas.innerHTML = `INSERT INTO movies(nombre,descripcion,genero,calificacion,anio,estrellas,director) VALUES \n\t${listaPeliculas.join(',\n\t')};\n`;
     insertDirectores.innerHTML = 'Generando Directores ....\n'
     while (listaDirectores.length < contDirectores) {
         {
-            insertDirectores.innerHTML = enProceso(insertDirectores.innerHTML);
+            insertDirectores.innerHTML = enProceso(insertDirectores.innerHTML, listaDirectores.length, contDirectores, 'Generando Directores');
             const texto = await detalleDirector(parseInt(Math.random() * 25000 + 1));
             if (texto != '') {
                 listaDirectores.push({ id: listaDirectores.length + 1, texto: texto });
@@ -102,7 +102,7 @@ async function generar(ev) {
         }
     }
 
-    insertDirectores.innerHTML = `INSERT INTO directores(nombre,apellido,edad,nacionalidad) VALUES (\n\t${listaDirectores.map(v => v.texto).join(',\n\t')});\n`;
+    insertDirectores.innerHTML = `INSERT INTO directores(nombre,apellido,edad,nacionalidad) VALUES \n\t${listaDirectores.map(v => v.texto).join(',\n\t')};\n`;
     console.clear();
     window.scroll(0, 1500);
 }
@@ -118,15 +118,15 @@ async function generarListaPeliculas(count, listaDirectores) {
         await fetch(`https://api.themoviedb.org/3/movie/${id}?language=es`, options)
             .then(response => response.json())
             .then(async response => {
-                insertPeliculas.innerHTML = enProceso(insertPeliculas.innerHTML);
-                if (response.status_code != 34 ) {
-                    if ( response.overview != ''){
-                    const texto = await directorDePelicula(id);
-                    if (texto != '') {
-                        listaDirectores.push({ id: listaDirectores.length + 1, texto: texto })
-                        result.push(pelicula(response.title, response.overview, response.genres[0].name, response.vote_average, response.release_date, parseInt(response.vote_average / 2), listaDirectores[listaDirectores.length - 1].id));
-                    };
-                }
+                insertPeliculas.innerHTML = enProceso(insertPeliculas.innerHTML, result.length, lista, 'Generando Peliculas');
+                if (response.status_code != 34) {
+                    if (response.overview != '') {
+                        const texto = await directorDePelicula(id);
+                        if (texto != '') {
+                            listaDirectores.push({ id: listaDirectores.length + 1, texto: texto })
+                            result.push(pelicula(response.title, response.overview, response.genres[0].name, response.vote_average, response.release_date, parseInt(response.vote_average / 2), listaDirectores[listaDirectores.length - 1].id));
+                        };
+                    }
                 }
             })
             .catch(err => console.error('id: ', id, '  --  ', err));
