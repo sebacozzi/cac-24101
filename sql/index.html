@@ -11,8 +11,8 @@
 
 <body>
     <style>
-        a,
-        button {
+        
+        .boton {
             cursor: pointer;
             text-decoration: none;
             font-weight: bold;
@@ -22,26 +22,58 @@
             border-radius: 15px;
             background-color: rgba(112, 189, 131, 0.397);
         }
+
+        img {
+            height: 220px;
+        }
+
+        #datos {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+        }
+
+        #opciones {
+            display: flex;
+            flex-direction: column;
+            width: 33%;
+            row-gap: 5px ;
+        }
+        input{
+            padding: 5px 10px;
+            border-radius: 15px;
+
+        }
     </style>
+        <h1 style="text-align: center;font-size: 50px;">Generar sql</h1>
     <section id="datos">
-        <h1>generar sql</h1>
-        <div>
+        <div id="opciones">
             <label for="nombre">Nombre de la base de datos</label>
             <input type="text" id="nDB" value="PELICULAS">
-        </div>
-        <div>
-            <label for="count-peliculas">cantidad de peliculas</label>
+
+            <label for="count-peliculas">Cantidad de peliculas</label>
             <input type="number" id="count-peliculas" value="15">
-        </div>
-        <div>
-            <label for="count-directores">cantidad de directores</label>
+
+            <label for="count-directores">Cantidad de directores</label>
             <input type="number" id="count-directores" value="15">
+
+            <label for="count-usuarios">Cantidad de usuarios</label>
+            <input type="number" id="count-usuarios" value="15">
+
+            <button id="generar" class="boton">Generar SQL</button>
         </div>
         <div>
-            <label for="count-usuarios">cantidad de usuarios</label>
-            <input type="number" id="count-usuarios" value="15">
-        </div>
-        <button id="generar">Generar SQL</button>
+            <a href="https://www.themoviedb.org/" ><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                alt="" srcset=""></a>
+                
+            </div>
+            <div>
+                <a href=" https://randomuser.me/">
+                <img src="https://support.pingidentity.com/s/sfsites/c/sfc/servlet.shepherd/version/download/0688Z00000NGpLZQA1" alt="" >
+                </a>
+               
+            </div>
     </section>
 
 
@@ -100,7 +132,8 @@ directores(id_director);
 </pre>
 
     </section>
-    <a id="descargar">Descargar</a>
+    <a id="descargar"  class="boton">Descargar</a> <input type="text" placeholder="nombre del archivo" value="archivo"
+        id="nombre-archivo">
     <script src="./js/generasql.js"></script>
 </body>
 

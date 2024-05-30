@@ -2,12 +2,12 @@
 
 const botonGenerar = document.querySelector('#generar');
 const bDescarga = document.querySelector('#descargar');
+const nombreDB =document.querySelector('#nDB')
 
 const insertUsuarios = document.querySelector('#insert_usuarios');
 const insertDirectores = document.querySelector('#insert_directores');
 const insertPeliculas = document.querySelector('#insert_movies');
 
-const paises = ['Argentina', 'Brasil', 'Uruguay', 'Estados Unidos', 'España', 'Mexico', 'Colombia', 'Bolivia', 'Chile', 'Francia']
 
 const options = {
     method: 'GET',
@@ -21,8 +21,22 @@ bDescarga.addEventListener('click', descargarSQL);
 
 botonGenerar.addEventListener('click', generar);
 
+nombreDB.addEventListener('change',cambiarNombreDB);
+
+nombreDB.addEventListener('keyup',(ev)=>ev.target.value = ev.target.value.toUpperCase());
+
+function cambiarNombreDB(ev){
+    const nombre = nombreDB.value;
+
+    document.querySelector('#create-db').innerHTML=
+`\nCREATE DATABASE ${nombre};
+        
+USE ${nombre};`; 
+}
+
 function descargarSQL() {
     let sql = document.querySelectorAll('code');
+    const nombreArchivo = document.querySelector('#nombre-archivo').value;
     let archivo = '';
     for (let i = 0; i < sql.length; i++) {
         if (sql[i].innerHTML != '') {
@@ -30,12 +44,11 @@ function descargarSQL() {
         } else {
             archivo = archivo + '/* ' + sql[i].attributes['descripcion'].value + ' no generado' + ' */\n';
         }
-
     }
-    console.log(archivo);
+
     bDescarga.href = "data:application/octet-stream,"
         + encodeURIComponent(archivo);
-    bDescarga.download = 'archivo.sql';
+    bDescarga.download = `${nombreArchivo}.sql`;
 
 }
 function convertirFecha(fecha) {
@@ -87,11 +100,11 @@ async function generar(ev) {
 
     insertUsuarios.innerHTML = `INSERT INTO usuarios(nombre,apellido,email,fecha_nac,pais) VALUES \n\t${listaUsuarios.join(', \n\t')};\n`;
     window.scroll(0, 1500);
-    insertPeliculas.innerHTML = 'Generando Peliculas ....\n'
+    insertPeliculas.innerHTML = 'Generando Peliculas (0/'+contPelis+') ....\n'
     let listaPeliculas = await generarListaPeliculas(contPelis, listaDirectores);
 
     insertPeliculas.innerHTML = `INSERT INTO movies(nombre,descripcion,genero,calificacion,anio,estrellas,director) VALUES \n\t${listaPeliculas.join(',\n\t')};\n`;
-    insertDirectores.innerHTML = 'Generando Directores ....\n'
+    insertDirectores.innerHTML = 'Generando Directores (0/'+contDirectores+') ....\n'
     while (listaDirectores.length < contDirectores) {
         {
             insertDirectores.innerHTML = enProceso(insertDirectores.innerHTML, listaDirectores.length, contDirectores, 'Generando Directores');
@@ -124,7 +137,7 @@ async function generarListaPeliculas(count, listaDirectores) {
                         const texto = await directorDePelicula(id);
                         if (texto != '') {
                             listaDirectores.push({ id: listaDirectores.length + 1, texto: texto })
-                            result.push(pelicula(response.title, response.overview, response.genres[0].name, response.vote_average, response.release_date, parseInt(response.vote_average / 2), listaDirectores[listaDirectores.length - 1].id));
+                            result.push(genPelicula(response, listaDirectores[listaDirectores.length - 1].id));
                         };
                     }
                 }
@@ -134,26 +147,40 @@ async function generarListaPeliculas(count, listaDirectores) {
     return result;
 }
 
+function genPelicula(respuesta,id){
+    return pelicula(respuesta.title, 
+                    respuesta.overview,
+                    respuesta.genres[0].name, 
+                    respuesta.vote_average, 
+                    respuesta.release_date, 
+                    parseInt(respuesta.vote_average / 2), 
+                    id);
+}
+
 async function detalleDirector(id) {
     let result = '';
     await fetch(`https://api.themoviedb.org/3/person/${id}`, options)
         .then(response => response.json())
-        .then(response => {
-            if (response.status_code != 34) {
-                if (response.birthday && !response.deathday && response.place_of_birth) {
-                    const nombre = response.name.split(' ')[0].trim();
-                    const apellido = response.name.replace(nombre + ' ', '').trim();
-                    const edad = (new Date().getFullYear()) - parseInt(response.birthday.split('-')[0]);
-                    const nacionalidad = response.place_of_birth.split(',').at(-1).trim();
-                    result = `("${nombre}","${apellido}","${edad}","${nacionalidad}")`;
-                }
-            }
-        })
+        .then(response => result = genDirector(response))
         .catch(err => console.error(err));
 
 
     return result;
 }
+
+function genDirector(response){
+    if (response.status_code != 34) {
+        if (response.birthday && !response.deathday && response.place_of_birth) {
+            const nombre = response.name.split(' ')[0].trim();
+            const apellido = response.name.replace(nombre + ' ', '').trim();
+            const edad = (new Date().getFullYear()) - parseInt(response.birthday.split('-')[0]);
+            const nacionalidad = response.place_of_birth.split(',').at(-1).trim();
+            return  `("${nombre}","${apellido}","${edad}","${nacionalidad}")`;
+        }
+    }
+    return '';
+}
+
 
 async function generarDatosUsuarios(count) {
     let result;
