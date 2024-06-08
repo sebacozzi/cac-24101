@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Back - autentia</title>
+</head>
+
+<body style="margin: 0;">
+    <div id="indice" style="position: fixed; width: 200px; background-color: antiquewhite;overflow: hidden;overflow-y: scroll;">
+        <section id="p1">
+            <h3>Parte 1 - Introducción a Backend y Java</h3>
+            
+            <div id="nindice" style="background-color: aqua;"></div>
+        </section>
+    </div>
+    <div id="contenido" style=" position: absolute;left: 200px;width: calc(100% - 220px); border-left: 1px solid black; padding-left: 10px;">
+        <div id="glosario">
+            <h1>Back</h1>
+            <hr>
+            <h2>Guía Completa</h2>
+            <p>Este documento forma parte de las guías de onboarding de
+                Autentia. Si te apasiona el desarrollo de software de calidad
+                ayúdanos a difundirlas y anímate a unirte al equipo. Este es un
+                documento vivo y puedes encontrar la última versión, así como el
+                resto de guías completas, en nuestra web
+                <a href="https://www.autentia.com/libros/" target="_blank">https://www.autentia.com/libros/</a>
+            </p>
+            <img src="./img/img0.PNG" alt="" id="img0" style="width: 40%; margin: 0 25%;">
+            <p>Esta obra está licenciada bajo la licencia <a
+                    href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons
+                    Attribution ShareAlike 4.0 International (CC BY-SA 4.0)</a> </p>
+            <div style="display: grid;
+            grid-template-columns: repeat(auto-fit, 50%);">
+                <p style="padding: 0 25px;">Si alguna vez, estando con amigos
+                    o familiares preguntan a qué
+                    me dedico exactamente, suelo
+                    contestar que mi trabajo consiste
+                    en colaborar en la construcción
+                    de la parte de las aplicaciones que
+                    hace que salgas en los periódicos
+                    únicamente cuando lo haces mal.
+                    <b>Eso es el Backend, eso que no
+                        se ve pero que todo el mundo da
+                        por supuesto:</b> se da por supuesto
+                    que los datos se intercambian
+                    de manera segura, que no se
+                    pierden o corrompen y que son
+                    vistos o modificados únicamente
+                    por los que tienen el permiso
+                    para hacerlo; se da por supuesto
+                    que el sistema debe responder
+                </p>
+                <p style="padding: 0 25px ;">
+                    con celeridad y que siempre está
+                    disponible; se da por supuesto
+                    que la información se intercambia
+                    entre distintos sistemas con
+                    fiabilidad y registrando en todo
+                    momento qué, quién y cuándo se
+                    accedió a esa información, etc. En
+                    definitiva, <b>se da por supuesto que funciona.</b>
+                    <br>
+                    <br>
+                    <span style="font-size: 1.5em;"><b>“El Backend es
+                            la parte de las
+                            aplicaciones que
+                            el usuario percibe
+                            únicamente cuando
+                            NO funciona”</b></span>
+                </p>
+            </div>
+            <p>Quizás por su posición de elemento básico o por su naturaleza invisible
+                al usuario, se ha extendido la percepción de ser un trabajo poco creativo,
+                falto de imaginación o mucho peor: que para esto vale cualquiera, frase
+                que no es tan rara de escuchar. Y esta estrecha y limitada visión produce
+                sistemas frágiles y poco fiables, aplicaciones inconsistentes e inseguras
+                abandonadas en manos de desarrolladores con poca experiencia y cuya
+                única motivación es sobrevivir un día más, manteniendo una aplicación
+                de la que hace tiempo perdieron el control, dirigidos por profesionales
+                obsoletos porque hace tiempo que abandonaron las trincheras y son ya
+                incapaces de ayudarles. Y sin embargo, éste es un campo que <b>sí necesita
+                    creatividad,</b> una que nace del análisis de los datos y de un conocimiento
+                profundo del amplísimo ecosistema en el que se desenvuelven
+                las aplicaciones, capacidad que surge del trabajo, de la mejora y el
+                aprendizaje contínuo, de la experiencia y del compromiso, del trabajo
+                en equipo y de la <b>enseñanza e inspiración</b> que algunos profesionales
+                puedan ejercer sobre aquellos que comienzan en este apasionante
+                mundo del Backend.</p>
+            <p>Haz un buen estudio de mercado, encuentra patrocinadores, diseña tu
+                producto acorde a tus usuarios objetivo. Haz una espectacular interfaz
+                de usuario que permita conquistar el mundo en un solo click. Construye
+                una aplicación Web que sea fidelísima al diseño entregado y que además,
+                sea responsive, adaptable y accesible. Despliega en la nube, con una
+                arquitectura autoescalable y todos los extras que te ofrece tu plataforma
+                favorita. Pero ten por seguro, que si la parte sobre la que se fundamenta
+                todo el sistema no funciona, <b> nada de lo que has hecho servirá.</b></p>
+        </div>
+        <div id="intro">
+            <h1>Parte 1</h1>
+            <hr>
+            <h2>Introducción a Backend y Java</h2>
+        </div>
+        <div id="aplicaciones">
+            <h2>Tipos de aplicaciones</h2>
+            No todas las aplicaciones tienen las mismas características. En función del
+            entorno en el que se ejecutan, podemos distinguir dos grandes grupos:
+            aplicaciones de escritorio y aplicaciones web. A continuación, se ofrece una
+            comparativa con sus principales ventajas y desventajas:
+            <table border="3">
+                <thead>
+                    <td></td>
+                    <td>Escritorio</td>
+                    <td>Web</td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ventajas</td>
+                        <td>
+                            <ul>
+                                <li>Acceso completo a recusos</li>
+                                <li>Pueden funcionar sin conexión</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    No hace falta instalarlas.
+                                </li>
+                                <li>
+                                    Todos tienen la misma versión.
+                                </li>
+                                <li>
+                                    Válidas para cualquier S.O.
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Desventajas
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Despliegue más complicado.
+                                </li>
+                                <li>
+                                    Específicas para un SO.
+                                </li>
+                                <li>
+                                    Conflictos entre versiones.
+                                </li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>
+                                    Requieren conexión.
+                                </li>
+                                <li>
+                                    Compatibilidad con distintos navegadores.
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="aplicaciones-escritorio">
+            <h3>Aplicaciones de Escritorio</h3>
+            <p>
+                Son las aplicaciones más tradicionales que podemos instalar en nuestro
+                equipo. Las aplicaciones móviles también pertenecen a este grupo, aunque
+                su planteamiento dista de aquellas que se desarrollaban en décadas
+                pasadas.
+            </p>
+            <p>
+                Este tipo de aplicaciones se caracteriza por tener, en mayor o menor grado,
+                una buena parte del procesamiento de los datos en el propio dispositivo.
+                Por tanto, tienen también un lado back instalado. La interfaz puede
+                generarse de muchas formas. Pueden usar componentes del sistema
+                operativo, interfaces web, renderizar componentes propios, etc.
+                Actualmente, muchas de estas aplicaciones también consumen datos
+                desde servicios remotos. Algunas de ellas podrían llegar a considerarse una
+                mera interfaz nativa para estos servicios.
+            </p>
+
+        </div>
+        <div id="aplicaciones-web">
+            <h3>Aplicaciones Web</h3>
+            <p>
+                Son la piedra angular de internet. Se encargan de gestionar las peticiones
+                de millones de clientes a lo largo de todo el mundo. Mantienen la
+                coherencia y la seguridad de los datos. Intercambian información con otras
+                aplicaciones para ofrecernos servicios de interés.
+            </p>
+            <p>
+                En un inicio, se basaban en una arquitectura cliente-servidor que contenía
+                todo lo necesario para funcionar, incluida una interfaz web para acceder y
+                manipular la información. Esta visión ha evolucionado hacia aplicaciones
+                que se distribuyen a lo largo de varios servidores o instancias en la nube, y
+                se enfocan a actuar como back para atender peticiones de múltiples
+                clientes a través de servicios SOAP o REST. Incluso, en muchas ocasiones,
+                encontramos que esta relación se establece entre varias aplicaciones web,
+                donde una no puede funcionar sin acceso a las otras.
+            </p>
+            <img src="./img/img1.PNG" alt="">
+
+        </div>
+        
+    </div>
+    <script src="./js/indice.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

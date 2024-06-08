@@ -29,6 +29,7 @@ function iniciarLogin() {
 function cerrarLogin() {
 
     document.querySelector("#flogin").innerHTML = '';
+    document.querySelector("#flogin").style.innerHTML = '';
     document.querySelector('body').style.overflow = 'auto';
 
 }
