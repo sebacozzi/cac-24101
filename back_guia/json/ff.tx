@@ -1,0 +1,81 @@
+<div id="glosario">
+            <h1>Back</h1>
+            <hr>
+            <h2>Guía Completa</h2>
+            <p>Este documento forma parte de las guías de onboarding de
+                Autentia. Si te apasiona el desarrollo de software de calidad
+                ayúdanos a difundirlas y anímate a unirte al equipo. Este es un
+                documento vivo y puedes encontrar la última versión, así como el
+                resto de guías completas, en nuestra web
+                <a href="https://www.autentia.com/libros/" target="_blank">https://www.autentia.com/libros/</a>
+            </p>
+            <img src="./img/img0.PNG" alt="" id="img0" style="width: 40%; margin: 0 25%;">
+            <p>Esta obra está licenciada bajo la licencia <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+                    target="_blank">Creative Commons
+                    Attribution ShareAlike 4.0 International (CC BY-SA 4.0)</a> </p>
+            <div style="display: grid;
+            grid-template-columns: repeat(auto-fit, 50%);">
+                <p style="padding: 0 25px;">Si alguna vez, estando con amigos
+                    o familiares preguntan a qué
+                    me dedico exactamente, suelo
+                    contestar que mi trabajo consiste
+                    en colaborar en la construcción
+                    de la parte de las aplicaciones que
+                    hace que salgas en los periódicos
+                    únicamente cuando lo haces mal.
+                    <b>Eso es el Backend, eso que no
+                        se ve pero que todo el mundo da
+                        por supuesto:</b> se da por supuesto
+                    que los datos se intercambian
+                    de manera segura, que no se
+                    pierden o corrompen y que son
+                    vistos o modificados únicamente
+                    por los que tienen el permiso
+                    para hacerlo; se da por supuesto
+                    que el sistema debe responder
+                </p>
+                <p style="padding: 0 25px ;">
+                    con celeridad y que siempre está
+                    disponible; se da por supuesto
+                    que la información se intercambia
+                    entre distintos sistemas con
+                    fiabilidad y registrando en todo
+                    momento qué, quién y cuándo se
+                    accedió a esa información, etc. En
+                    definitiva, <b>se da por supuesto que funciona.</b>
+                    <br>
+                    <br>
+                    <span style="font-size: 1.5em;"><b>“El Backend es
+                            la parte de las
+                            aplicaciones que
+                            el usuario percibe
+                            únicamente cuando
+                            NO funciona”</b></span>
+                </p>
+            </div>
+            <p>Quizás por su posición de elemento básico o por su naturaleza invisible
+                al usuario, se ha extendido la percepción de ser un trabajo poco creativo,
+                falto de imaginación o mucho peor: que para esto vale cualquiera, frase
+                que no es tan rara de escuchar. Y esta estrecha y limitada visión produce
+                sistemas frágiles y poco fiables, aplicaciones inconsistentes e inseguras
+                abandonadas en manos de desarrolladores con poca experiencia y cuya
+                única motivación es sobrevivir un día más, manteniendo una aplicación
+                de la que hace tiempo perdieron el control, dirigidos por profesionales
+                obsoletos porque hace tiempo que abandonaron las trincheras y son ya
+                incapaces de ayudarles. Y sin embargo, éste es un campo que <b>sí necesita
+                    creatividad,</b> una que nace del análisis de los datos y de un conocimiento
+                profundo del amplísimo ecosistema en el que se desenvuelven
+                las aplicaciones, capacidad que surge del trabajo, de la mejora y el
+                aprendizaje contínuo, de la experiencia y del compromiso, del trabajo
+                en equipo y de la <b>enseñanza e inspiración</b> que algunos profesionales
+                puedan ejercer sobre aquellos que comienzan en este apasionante
+                mundo del Backend.</p>
+            <p>Haz un buen estudio de mercado, encuentra patrocinadores, diseña tu
+                producto acorde a tus usuarios objetivo. Haz una espectacular interfaz
+                de usuario que permita conquistar el mundo en un solo click. Construye
+                una aplicación Web que sea fidelísima al diseño entregado y que además,
+                sea responsive, adaptable y accesible. Despliega en la nube, con una
+                arquitectura autoescalable y todos los extras que te ofrece tu plataforma
+                favorita. Pero ten por seguro, que si la parte sobre la que se fundamenta
+                todo el sistema no funciona, <b> nada de lo que has hecho servirá.</b></p>
+        </div>
