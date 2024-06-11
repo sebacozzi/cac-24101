@@ -1,5 +1,8 @@
 {
-    "indice": [
+    "parte1":{ 
+        "title":"Parte 1 - Introducción a Backend y Java",
+        "ref":"",
+        "subs":[
         {
             "title": "Glosario",
             "ref": "glosario",
@@ -199,5 +202,10 @@
                 }
             ]
         }
-    ]
+    ]},
+    "parte2":{
+        "title":"Parte 2",
+        "ref":"",
+        "sub":[]
+    }
 }
