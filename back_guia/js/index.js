@@ -12,8 +12,17 @@ function load(valor, ref) {
 
 async function cargarIndice() {
     const indice = await (await fetch("json/indices.json")).json();
-    const indi = load(indice.indice, "");
-    document.getElementById('nindice').innerHTML = indi;
+     let indiHTML="";
+     console.log (indice)
+     for (const val in (await (await fetch("json/indices.json")).json())) {
+        console.log(val.title)
+    } 
+        indice.parte1.subs.map(val=> {
+        console.log(val)
+        indiHTML +=`<h3>${val.title}</h3>`;
+        indiHTML += load(val.subs,"");
+    })
+    document.getElementById('nindice').innerHTML = indiHTML;
 }
 
 
