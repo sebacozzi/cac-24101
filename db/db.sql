@@ -60,3 +60,4 @@ SELECT id,
 	FROM clientes
 ORDER BY nombre_completo;
 
+SELECT * FROM usuarios

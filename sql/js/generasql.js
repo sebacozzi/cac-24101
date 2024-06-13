@@ -73,7 +73,7 @@ function enProceso(texto, realizados, de, msg) {
 }
 
 function pelicula(nombre, descripcion, genero, calificacion, anio, estrellas, id_director) {
-    return `("${nombre}", "${descripcion.replace('\"', '\'')}", "${genero}", "${calificacion}", "${anio.split('-')[0]}", "${estrellas}", "${id_director}")`;
+    return `("${nombre}", "${descripcion.replaceAll('\"', '\'')}", "${genero}", "${calificacion}", "${anio.split('-')[0]}", "${estrellas}", "${id_director}")`;
 }
 
 function usuarioAString(usuario) {
