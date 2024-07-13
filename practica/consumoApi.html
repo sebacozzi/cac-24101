@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,18 +14,57 @@
     <section id="main">
         <input type="text" name="" id="url" value="https://reqres.in/api/users?page=1">
         <button type="button" onclick="obtenerDatos()">Obtener Datos</button>
+        <input type="text" name="" id="nombre-usuario" value="sebacozzi@email.com.ar">
+        <input type="text" name="" id="password-usuario" value="admin1234">
+        <button type="button" id="login">login</button>
+        <button type="button" id="check">Check Token</button>
+        <input type="text" name="" id="inv" value="">
+
         <hr>
+        <p>Crear pelicula: </p>
+        <p>Nombre:</p>
+        <input type="text" name="" id="nombre" value="Pelicula desde el front">
+        <input type="text" name="" id="descripcion" value="Descripcion de pelicula desde el front">
+        <input type="text" name="" id="genero" value="Acción">
+        <input type="number" step="1" name="" id="anio" value="2024">
+        <input type="number" step="0.5" name="" id="calificacion" value="6">
+        <input type="number" step="1" name="" id="estrellas" value="3">
+        <input type="number" name="" id="director" value="1">
+
+        <button type="button" id="crear" onclick="crearPelicula()">Crear Pelicula</button>
+        <hr>
+        <p>Borrar</p>
+        <input type="number" name="" id="id_pelicula_borrar" value="1">
+
+        <button type="button" id="borrar" onclick="borrarPelicula()">Borrar Pelicula</button>
+        <hr>
+        <p>Editar pelicula: </p>
+        <p>Nombre:</p>
+        <input type="number" name="" id="id_pelicula" value="1">
+        <button type="button" id="borrar" onclick="buscarPelicula()">Buscar Pelicula</button><br>
+        <input type="hidden" name="" id="id_movie1">
+        <input type="text" name="" id="nombre1">
+        <input type="text" name="" id="descripcion1">
+        <input type="text" name="" id="genero1">
+        <input type="number" step="1" name="" id="anio1">
+        <input type="number" step="0.5" name="" id="calificacion1">
+        <input type="number" step="1" name="" id="estrellas1">
+        <input type="number" name="" id="director1">
+
+        <button type="button" id="crear" onclick="modificarPelicula()">modificar Pelicula</button>
+        <hr>
+        <p id="urlnow"></p>
     </section>
 
     <div id="respuesta" style="display: flex;flex-direction: row;flex-wrap: wrap;"></div>
 
     <div style="display: flex; justify-content: center;">
         <div id="botones">
-            <button id="anterior" >Anterior</button>
+            <button id="anterior">Anterior</button>
             <button id="siguiente">Siguiente</button>
         </div>
     </div>
-
+    <div id="token"></div>
     <script src="./js/consumoApi.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -1,5 +1,10 @@
 
-const user = JSON.parse(sessionStorage.getItem('user')) || {};
+const user = {
+    nombre: sessionStorage.getItem('nombre'),
+    apellido: sessionStorage.getItem('apellido'),
+    email: sessionStorage.getItem('email')
+};
+
 let paginaActiva = parseInt(sessionStorage.getItem('paginaActiva')) || 1;
 const botonSiguiente = document.querySelector('#siguiente');
 const botonAnterior = document.querySelector('#anterior');
@@ -15,6 +20,9 @@ const options = {
     }
 };
 
+botonSiguiente.addEventListener('click', paginaSiguiente);
+botonAnterior.addEventListener('click', paginaAnterior);
+
 function loguearse() {
     alert('Debe loguearse para ver los detalles de la pelicula!!')
 };
@@ -28,15 +36,13 @@ function insertaCarta(clase, imagen, titulo, id, categoria) {
 }
 
 function logueado() {
-    return user.email;
+    return sessionStorage.getItem('token') != null;
 }
 
 function detalle(id) {
     if (!logueado()) {
         loguearse();
         return;
-    } else {
-        //user = JSON.parse(sessionStorage.getItem('user'));
     }
 }
 
@@ -53,26 +59,38 @@ async function cargarPagina() {
         defaultAclamadas.forEach(peli => {
             aclamadas.innerHTML = aclamadas.innerHTML + insertaCarta(peli.class, peli.src, peli.title, peli.id, 'aclamada')
         })
+
+        if (document.getElementById('liCRUD') != null) {
+            document.getElementById('liCRUD').remove();
+        }
         botonAnterior.disabled = true;
         botonSiguiente.disabled = true;
         document.querySelector('#n-pagina').innerHTML = '';
-        document.querySelector('#no-logueado').innerHTML= noLogueado;
+        document.querySelector('#no-logueado').innerHTML = noLogueado;
         return;
     }
-    document.querySelector('#no-logueado').innerHTML='';
+    document.querySelector('#no-logueado').innerHTML = '';
 
     await apiTendencias(paginaActiva);
 
     listaTendencias.results.forEach(peli => {
         tendencias.innerHTML = tendencias.innerHTML + insertaCarta('carta', urlImagen + peli.poster_path, peli.title, peli.id, 'tendencia')
     });
-
     await apiAclamadas();
-
-
-
-
     enableBotones();
+
+    if (sessionStorage.getItem('roles').includes('2', 0) || sessionStorage.getItem('roles').includes('3', 0)) {
+        const aCRUD = document.createElement('a');
+        aCRUD.setAttribute('id', 'boton-crud');
+        aCRUD.setAttribute('style', 'cursor: pointer');
+        aCRUD.setAttribute('href', './crud/index.html');
+        aCRUD.innerText = 'CRUD';
+        const liCrud = document.createElement('li');
+        liCrud.setAttribute('id', 'liCRUD');
+        liCrud.appendChild(aCRUD);
+        document.getElementById('opciones-header').appendChild(liCrud);
+
+    }
 }
 
 window.onload = cargarPagina;
@@ -90,8 +108,7 @@ function enableBotones() {
     sessionStorage.setItem('paginaActiva', paginaActiva);
 }
 
-botonSiguiente.addEventListener('click', paginaSiguiente);
-botonAnterior.addEventListener('click', paginaAnterior);
+
 
 async function paginaSiguiente() {
     paginaActiva = paginaActiva + 1;

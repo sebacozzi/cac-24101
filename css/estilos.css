@@ -84,6 +84,13 @@ li {
         }
     }
 
+    &:nth-child(3) {
+        a {
+            background-color: black;
+            box-shadow: none;
+        }
+    }
+
     display: inline;
 }
 

@@ -1,6 +1,6 @@
 
 
-const botonLogin=document.querySelector('#boton-login');
+const botonLogin = document.querySelector('#boton-login');
 
 botonLogin.addEventListener('click', iniciarLogin);
 let usuario;
@@ -8,21 +8,26 @@ let pass;
 const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
 function iniciarLogin() {
-    if (logueado()){
-        sessionStorage.removeItem('user');
+    if (logueado()) {
+
         sessionStorage.removeItem('paginaActiva');
-        user.email ='';
+
+        sessionStorage.removeItem('nombre');
+        sessionStorage.removeItem('apellido');
+        sessionStorage.removeItem('email');
+        sessionStorage.removeItem('roles');
+        sessionStorage.removeItem('token');
         cargarPagina();
-        botonLogin.innerHTML='Iniciar Sesión';
+        botonLogin.innerHTML = 'Iniciar Sesión';
         return;
     }
-    document.querySelector("#flogin").innerHTML= formulario;
- 
-     usuario = document.querySelector('#email');
-     pass = document.querySelector('#contrasenia');
+    document.querySelector("#flogin").innerHTML = formulario;
+    console.log('loguear')
+    usuario = document.querySelector('#email');
+    pass = document.querySelector('#contrasenia');
 
     document.querySelector('body').style.overflow = 'hidden';
-    
+
 }
 
 
@@ -100,18 +105,31 @@ function iniciarSesion() {
 
 function guardaSesion(email, password) {
 
-    user.email = email;
-    user.pass = password;
-    user.nombreMostrar = email.split('@')[0];
+    sessionStorage.setItem('loginUsuario', email);
+    sessionStorage.setItem('loginPassword', password);
 
-    console.log(user);
-    mostrarUsuario();
+    location.href = "./auth.html";
 
 
-    sessionStorage.setItem('user', JSON.stringify(user));
+
 }
 
-function mostrarUsuario(){
-    document.querySelector('#usuario-logueado').innerHTML = logueado()? `<b>Hola</b> ${user.nombreMostrar}!!`:'¡Inicia sesión!';
-    botonLogin.innerHTML=logueado()?'Cerrar Sesión':'Iniciar Sesión';
+function mostrarUsuario() {
+    document.querySelector('#usuario-logueado').innerHTML = logueado() ? `<b>Hola ${rol()}</b> ${user.nombre} ${user.apellido}!!` : '¡Inicia sesión!';
+    botonLogin.innerHTML = logueado() ? 'Cerrar Sesión' : 'Iniciar Sesión';
+}
+
+function rol() {
+    const roles = sessionStorage.getItem('roles');
+    let resultado = "";
+    if (roles.includes('1', 0)) {
+        resultado = 'usuario';
+    }
+    if (roles.includes('2', 0)) {
+        resultado = 'administrador';
+    }
+    if (roles.includes('3', 0)) {
+        resultado = 'super admin';
+    }
+    return resultado;
 }
