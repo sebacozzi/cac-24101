@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -37,12 +37,148 @@
     </header>
 
     <body>
-        <section id="tabs">
-            <ul id="op-tabs">
-                <li class="tab-activo"><a id="tab-movies" class="tab-activo">Tabla "movies"</a></li>
-                <li class="tab-desactivado"><a id="tab-directores">Tabla "directores"</a></li>
-                <li class="tab-desactivado"><a id="tab-usuarios">Tabla "usuarios"</a></li>
-            </ul>
+        <section>
+            <div id="botones-tab" class="tabs">
+                <button id="tab-movies" class="boton-tab activo">Tabla "movies"</button>
+                <button id="tab-directores" class="boton-tab">Tabla "directores"</button>
+                <button id="tab-usuarios" class="boton-tab">Tabla "usuarios"</button>
+                <button id="tab-roles" class="boton-tab">Tabla "roles"</button>
+                <button id="tab-rolusuarios" class="boton-tab">Tabla "roles usuarios"</button>
+            </div>
+        </section>
+        <section id="tablas">
+            <div class="contenedor">
+                <div class="linea-botones">
+                    <button id="crear"> Crear </button>
+                </div>
+                <div id="movies" class="contenedor-tabla ocultar">
+                    <table id="t-movies">
+                        <thead>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Descripcion</td>
+                            <td>Genero</td>
+                            <td>Calificación</td>
+                            <td>Año</td>
+                            <td>Estrellas</td>
+                            <td>Imagen</td>
+                            <td>Id director</td>
+                            <td>Opciones</td>
+                        </thead>
+                        <tbody id="datapeliculas"></tbody>
+                    </table>
+                </div>
+                <div id="directores" class="contenedor-tabla ocultar">
+                    <table id="t-movies">
+                        <thead>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Apellido</td>
+                            <td>Edad</td>
+                            <td>nacionalidad</td>
+                            <td>Imagen</td>
+                            <td>Opciones</td>
+                        </thead>
+                        <tbody id="datadirectores"></tbody>
+                    </table>
+
+                </div>
+                <div id="usuarios" class="contenedor-tabla ocultar">
+                    <table id="t-movies">
+                        <thead>
+                            <td>ID</td>
+                            <td>Nombre</td>
+                            <td>Apellido</td>
+                            <td>Email</td>
+                            <td>Fecha de Nacimiento</td>
+                            <td>Nacionalidad</td>
+                            <td>Password</td>
+                            <td>Imagen</td>
+                            <td>Opciones</td>
+                        </thead>
+                        <tbody id="datausuarios"></tbody>
+                    </table>
+                </div>
+                <div id="roles" class="contenedor-tabla ocultar">
+                    tabla roles
+                </div>
+                <div id="rolusuarios" class="contenedor-tabla ocultar">
+                    tabla roles usuarios
+                </div>
+                <span id="editores">
+                    <div id="editormovie" class="ocultar">
+                        <div id="editores" class="editor">
+                            <div class="linea">
+                                <div class="grupo-li">
+                                    <label for="nombre-peli">Nombre de la pelicula</label>
+                                    <input type="text" name="nombre-peli" id="nombre-peli">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="genero-peli">Genero</label>
+                                    <select name="genero-peli" id="genero-peli">
+                                        <option value="Acción">Acción</option>
+                                        <option value="Suspenso">Suspenso</option>
+                                        <option value="Animación">Animación</option>
+                                        <option value="Ciencia Ficción">Ciencia Ficción</option>
+                                        <option value="Comedia">Comedia</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Fantasía">Fantasia</option>
+                                        <option value="Familia">Familia</option>
+                                        <option value="Crimen">Crimen</option>
+                                        <option value="Terror">Terror</option>
+                                    </select>
+
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="calificacion-peli">Calificación</label>
+                                    <input type="number" step="0.2" name="calificacion-peli" id="calificacion-peli"
+                                        value="5">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="anio-peli">Año de producción</label>
+                                    <input type="number" step="1" min="1900" max="2024" name="anio-peli" id="anio-peli"
+                                        value="2024">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="grupo-li">
+                                    <label for="descripcion-peli">Descripción</label>
+                                    <textarea name="" id="descripcion-peli" cols="150" rows="20">Hola</textarea>
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="grupo-li">
+                                    <label for="estrellas-peli">Estrellas</label>
+                                    <input type="number" name="estrellas-peli" id="estrellas-peli" step="1" min="1"
+                                        max="5">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="imagen-peli">Imagen</label>
+                                    <input type="text" name="imagen-peli" id="imagen-peli">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="director-peli">director</label>
+                                    <select name="director-peli" id="director-peli">
+
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="linea-botones">
+                                <button id="b-guardar-peli">Guardar</button>
+                                <button id="b-cancelar-peli">Cancelar</button>
+                            </div>
+                            <input type="hidden" id="id_movie">
+                        </div>
+                    </div>
+                    <div id="editordirector" class="ocultar">
+                        editor director
+                    </div>
+                    <div id="editorusuario" class="ocultar">
+                        editor usuario
+                    </div>
+                </span>
+            </div>
         </section>
     </body>
 
