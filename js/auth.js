@@ -30,6 +30,7 @@ async function auth() {
                 sessionStorage.removeItem('apellido');
                 sessionStorage.removeItem('email');
                 sessionStorage.removeItem('roles');
+                sessionStorage.removeItem('vence');
                 sessionStorage.removeItem('token');
                 console.log('401')
             } else {
@@ -37,6 +38,7 @@ async function auth() {
                 sessionStorage.setItem('apellido', resultado.apellido);
                 sessionStorage.setItem('email', usuario)
                 sessionStorage.setItem('roles', resultado.roles);
+                sessionStorage.setItem('vence', resultado.vence);
                 sessionStorage.setItem('token', resultado.token);
                 console.log('200')
             }

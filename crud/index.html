@@ -172,8 +172,40 @@
                         </div>
                     </div>
                     <div id="editordirector" class="ocultar">
-                        editor director
+                        <div id="editores" class="editor">
+                            <div class="linea">
+                                <div class="grupo-li">
+                                    <label for="nombre-dire">Nombre</label>
+                                    <input type="text" name="nombre-dire" id="nombre-dire">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="apellido-dire">Apellido</label>
+                                    <input type="text" step="0.2" name="apellido-dire" id="apellido-dire" value="5">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="edad-dire">Edad</label>
+                                    <input type="number" step="1" min="10" max="100" name="edad-dire" id="edad-dire"
+                                        value="40">
+                                </div>
+                            </div>
+                            <div class="linea">
+                                <div class="grupo-li">
+                                    <label for="nacionalidad-dire">Nacionalidad</label>
+                                    <input type="text" name="nacionalidad-dire" id="nacionalidad-dire">
+                                </div>
+                                <div class="grupo-li">
+                                    <label for="imagen-dire">Imagen</label>
+                                    <input type="text" name="imagen-dire" id="imagen-dire">
+                                </div>
+                            </div>
+                            <div class="linea-botones">
+                                <button id="b-guardar-dire">Guardar</button>
+                                <button id="b-cancelar-dire">Cancelar</button>
+                            </div>
+                            <input type="hidden" id="id-dire">
+                        </div>
                     </div>
+
                     <div id="editorusuario" class="ocultar">
                         editor usuario
                     </div>
@@ -183,6 +215,7 @@
     </body>
 
     <script src="./js/index.js"></script>
+    <script src="./js/cudDirector.js"></script>
 </body>
 
 </html>

@@ -315,3 +315,4 @@ function creaNuevo(tabla) {
         editarPelicula(null)
     }
 }
+
